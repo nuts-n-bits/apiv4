@@ -819,8 +819,7 @@ proto.apiv4.page.Request_page_rendering_elements_by_name.prototype.toObject = fu
  */
 proto.apiv4.page.Request_page_rendering_elements_by_name.toObject = function(includeInstance, msg) {
   var f, obj = {
-    pageName: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    namespace: jspb.Message.getFieldWithDefault(msg, 2, "")
+    pageName: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -861,10 +860,6 @@ proto.apiv4.page.Request_page_rendering_elements_by_name.deserializeBinaryFromRe
       var value = /** @type {string} */ (reader.readString());
       msg.setPageName(value);
       break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setNamespace(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -901,13 +896,6 @@ proto.apiv4.page.Request_page_rendering_elements_by_name.serializeBinaryToWriter
       f
     );
   }
-  f = message.getNamespace();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
 };
 
 
@@ -923,21 +911,6 @@ proto.apiv4.page.Request_page_rendering_elements_by_name.prototype.getPageName =
 /** @param {string} value */
 proto.apiv4.page.Request_page_rendering_elements_by_name.prototype.setPageName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string namespace = 2;
- * @return {string}
- */
-proto.apiv4.page.Request_page_rendering_elements_by_name.prototype.getNamespace = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.apiv4.page.Request_page_rendering_elements_by_name.prototype.setNamespace = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -973,8 +946,7 @@ proto.apiv4.page.Request_page_metadata_by_name.prototype.toObject = function(opt
  */
 proto.apiv4.page.Request_page_metadata_by_name.toObject = function(includeInstance, msg) {
   var f, obj = {
-    pageName: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    namespace: jspb.Message.getFieldWithDefault(msg, 2, "")
+    pageName: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -1015,10 +987,6 @@ proto.apiv4.page.Request_page_metadata_by_name.deserializeBinaryFromReader = fun
       var value = /** @type {string} */ (reader.readString());
       msg.setPageName(value);
       break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setNamespace(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -1055,13 +1023,6 @@ proto.apiv4.page.Request_page_metadata_by_name.serializeBinaryToWriter = functio
       f
     );
   }
-  f = message.getNamespace();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
 };
 
 
@@ -1077,21 +1038,6 @@ proto.apiv4.page.Request_page_metadata_by_name.prototype.getPageName = function(
 /** @param {string} value */
 proto.apiv4.page.Request_page_metadata_by_name.prototype.setPageName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string namespace = 2;
- * @return {string}
- */
-proto.apiv4.page.Request_page_metadata_by_name.prototype.getNamespace = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.apiv4.page.Request_page_metadata_by_name.prototype.setNamespace = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1128,7 +1074,6 @@ proto.apiv4.page.Request_create_page.prototype.toObject = function(opt_includeIn
 proto.apiv4.page.Request_create_page.toObject = function(includeInstance, msg) {
   var f, obj = {
     pageName: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    namespace: jspb.Message.getFieldWithDefault(msg, 2, ""),
     content: jspb.Message.getFieldWithDefault(msg, 3, ""),
     revisionComment: jspb.Message.getFieldWithDefault(msg, 4, ""),
     visibility: jspb.Message.getFieldWithDefault(msg, 6, 0),
@@ -1172,10 +1117,6 @@ proto.apiv4.page.Request_create_page.deserializeBinaryFromReader = function(msg,
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setPageName(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setNamespace(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
@@ -1226,13 +1167,6 @@ proto.apiv4.page.Request_create_page.serializeBinaryToWriter = function(message,
   if (f.length > 0) {
     writer.writeString(
       1,
-      f
-    );
-  }
-  f = message.getNamespace();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
       f
     );
   }
@@ -1288,21 +1222,6 @@ proto.apiv4.page.Request_create_page.prototype.getPageName = function() {
 /** @param {string} value */
 proto.apiv4.page.Request_create_page.prototype.setPageName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string namespace = 2;
- * @return {string}
- */
-proto.apiv4.page.Request_create_page.prototype.getNamespace = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.apiv4.page.Request_create_page.prototype.setNamespace = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1424,7 +1343,6 @@ proto.apiv4.page.Request_page_revision_rendering_elements_by_page_name_ns.protot
 proto.apiv4.page.Request_page_revision_rendering_elements_by_page_name_ns.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    namespace: jspb.Message.getFieldWithDefault(msg, 2, ""),
     direction: jspb.Message.getFieldWithDefault(msg, 3, 0),
     idBis: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
@@ -1466,10 +1384,6 @@ proto.apiv4.page.Request_page_revision_rendering_elements_by_page_name_ns.deseri
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setNamespace(value);
       break;
     case 3:
       var value = /** @type {!proto.apiv4.page.Request_page_revision_rendering_elements_by_page_name_ns.Direction} */ (reader.readEnum());
@@ -1515,13 +1429,6 @@ proto.apiv4.page.Request_page_revision_rendering_elements_by_page_name_ns.serial
       f
     );
   }
-  f = message.getNamespace();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
   f = message.getDirection();
   if (f !== 0.0) {
     writer.writeEnum(
@@ -1559,21 +1466,6 @@ proto.apiv4.page.Request_page_revision_rendering_elements_by_page_name_ns.protot
 /** @param {string} value */
 proto.apiv4.page.Request_page_revision_rendering_elements_by_page_name_ns.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string namespace = 2;
- * @return {string}
- */
-proto.apiv4.page.Request_page_revision_rendering_elements_by_page_name_ns.prototype.getNamespace = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.apiv4.page.Request_page_revision_rendering_elements_by_page_name_ns.prototype.setNamespace = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

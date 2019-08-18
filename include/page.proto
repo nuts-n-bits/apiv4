@@ -29,24 +29,16 @@ message Page_with_rendering_elements {
 message Request_page_rendering_elements_by_name {
 
     string page_name = 1;
-    string namespace = 2;
 }
 
 message Request_page_metadata_by_name {
 
     string page_name = 1;
-    string namespace = 2;
-}
-
-message Request_page_rendering_elements_by_apparent_name {  // apparent name is "namespace-id/pagename". It is up to server to decode namespace by apparnt name. 
-
-    string apparent_page_name = 1;
 }
 
 message Request_create_page {
 
     string page_name = 1;
-    string namespace = 2;
     string content = 3;
     string revision_comment = 4;
     enum Visibility {
@@ -61,7 +53,6 @@ message Request_create_page {
 message Request_page_revision_rendering_elements_by_page_name_ns {
 
     string name = 1;
-    string namespace = 2;
     enum Direction {
         newest_first = 0;
         oldest_first = 1;

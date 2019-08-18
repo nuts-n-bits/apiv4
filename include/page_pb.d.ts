@@ -103,9 +103,6 @@ export class Request_page_rendering_elements_by_name extends jspb.Message {
   getPageName(): string;
   setPageName(value: string): void;
 
-  getNamespace(): string;
-  setNamespace(value: string): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Request_page_rendering_elements_by_name.AsObject;
   static toObject(includeInstance: boolean, msg: Request_page_rendering_elements_by_name): Request_page_rendering_elements_by_name.AsObject;
@@ -119,16 +116,12 @@ export class Request_page_rendering_elements_by_name extends jspb.Message {
 export namespace Request_page_rendering_elements_by_name {
   export type AsObject = {
     pageName: string,
-    namespace: string,
   }
 }
 
 export class Request_page_metadata_by_name extends jspb.Message {
   getPageName(): string;
   setPageName(value: string): void;
-
-  getNamespace(): string;
-  setNamespace(value: string): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Request_page_metadata_by_name.AsObject;
@@ -143,16 +136,12 @@ export class Request_page_metadata_by_name extends jspb.Message {
 export namespace Request_page_metadata_by_name {
   export type AsObject = {
     pageName: string,
-    namespace: string,
   }
 }
 
 export class Request_create_page extends jspb.Message {
   getPageName(): string;
   setPageName(value: string): void;
-
-  getNamespace(): string;
-  setNamespace(value: string): void;
 
   getContent(): string;
   setContent(value: string): void;
@@ -179,7 +168,6 @@ export class Request_create_page extends jspb.Message {
 export namespace Request_create_page {
   export type AsObject = {
     pageName: string,
-    namespace: string,
     content: string,
     revisionComment: string,
     visibility: Request_create_page.VisibilityMap[keyof Request_create_page.VisibilityMap],
@@ -198,9 +186,6 @@ export namespace Request_create_page {
 export class Request_page_revision_rendering_elements_by_page_name_ns extends jspb.Message {
   getName(): string;
   setName(value: string): void;
-
-  getNamespace(): string;
-  setNamespace(value: string): void;
 
   getDirection(): Request_page_revision_rendering_elements_by_page_name_ns.DirectionMap[keyof Request_page_revision_rendering_elements_by_page_name_ns.DirectionMap];
   setDirection(value: Request_page_revision_rendering_elements_by_page_name_ns.DirectionMap[keyof Request_page_revision_rendering_elements_by_page_name_ns.DirectionMap]): void;
@@ -224,7 +209,6 @@ export class Request_page_revision_rendering_elements_by_page_name_ns extends js
 export namespace Request_page_revision_rendering_elements_by_page_name_ns {
   export type AsObject = {
     name: string,
-    namespace: string,
     direction: Request_page_revision_rendering_elements_by_page_name_ns.DirectionMap[keyof Request_page_revision_rendering_elements_by_page_name_ns.DirectionMap],
     idBis: string,
   }
