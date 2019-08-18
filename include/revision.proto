@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package apiv4.revision;
+
+import "include/user.proto";
+
+message Revision_metadata {
+
+    string rev_id_bis = 1;
+    apiv4.user.User_public_model creator = 2;
+    string creation_time_bis = 3;
+    string comment = 4;
+    string related_page_id_bis = 5;
+}

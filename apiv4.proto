@@ -1,0 +1,62 @@
+// These messages are all for the same api endpoint that will always return
+// protobuf results. If you want raw data, or you can't use protobuf, please use ad-hoc api.
+
+// systematic: https://www.unblock-zh.org/api (receives and returns protobuf only)
+// ad-hoc: https://www.unblock-zh.org/api-ad-hoc (visit link and consult documentation)
+
+syntax = "proto3";
+import "include/support.proto";
+import "include/page.proto";
+import "include/feed.proto";
+import "include/user.proto";
+
+// This is the only request that ever goes on the wire to server, so server always knows to expect this type.
+
+message Api_request_wrapper {
+
+    apiv4.support.Credential credential = 1;
+
+    oneof actual_message {
+
+        apiv4.page.Request_page_rendering_elements_by_name page_rendering_elements = 11;
+        apiv4.page.Request_page_metadata_by_name page_metadata = 12;
+        apiv4.page.Request_create_page create_page = 13;
+        apiv4.feed.Request_feed_rendering_elements_by_name feed_rendering_elements = 21;
+        apiv4.feed.Request_feed_metadata_by_name feed_metadata = 22;
+        apiv4.user.Obtain_credential_by_password_naive_attempt sign_in_pwd_naive = 31;
+        apiv4.user.Obtain_credential_by_password_pow_1 sign_in_pwd_pow_1 = 32;
+        apiv4.user.Obtain_credential_2fa_hmac_totp_code sign_in_hmac_totp = 33;
+        apiv4.user.Obtain_credential_mail_otp_step_0_response sign_in_mail_otp_0 = 34;
+        apiv4.user.Obtain_credential_mail_otp_step_1_response sign_in_mail_otp_1 = 35;
+    }
+}
+
+// Regardless of whether the server could parse the incoming request or not, it needs to return a valid message
+// This is done by always returning the wrapper type.
+
+message Api_response_wrapper {
+
+    bool execution_ok = 1;
+
+    enum Broad_error_type {
+        no_info = 0;
+        insufficient_permission = 1;
+        invalid_message = 2;
+        DNE = 3;
+        mission_specific = 4;
+    }
+
+    Broad_error_type error = 2;
+
+    oneof actual_message {
+        apiv4.page.Page_with_rendering_elements page_rendering_elements = 11;
+        apiv4.page.Page_metadata page_metadata = 12;
+        apiv4.feed.Feed_with_rendering_elements feed_rendering_elements = 21;
+        apiv4.feed.Feed_metadata feed_metadata = 22;
+        apiv4.support.Proof_of_work_required_to_continue pow_required = 31;
+        apiv4.user.Reply_2fa_hmac_totp_required_to_obtain_credential sign_in_hmac_totp_required = 41;
+        apiv4.user.Reply_2fa_mail_otp_step_0_verify_email_addr sign_in_mail_totp_step_0 = 42;
+        apiv4.user.Reply_2fa_mail_otp_step_1_mail_sent sign_in_mail_totp_step_1 = 43;
+        apiv4.user.Response_credential_granted credential_granted = 44;
+    }
+}

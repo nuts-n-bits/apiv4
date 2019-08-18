@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package apiv4.feed;
+
+import "include/support.proto";
+import "include/page.proto";
+import "include/user.proto";
+import "include/revision.proto";
+
+message Feed_metadata {
+
+    string feed_id_bis = 1;
+    string namespace = 2;
+    string feed_name = 3;
+    string feed_creation_time_iso = 4;
+    apiv4.user.User_public_model creator = 5;
+}
+
+message Feed_with_rendering_elements {
+
+    Feed_metadata feed_meta = 1;
+    repeated apiv4.page.Page_with_rendering_elements feed_render = 2;
+}
+
+
+
+message Request_feed_rendering_elements_by_name {
+
+    string feed_name = 1;
+    string namespace = 2;
+    enum Request_amount_ceiling { _10 = 0; _20 = 1; _25 = 2; _50 = 3; _100 = 4; }
+    Request_amount_ceiling request_amount_ceiling = 3;
+}
+
+message Request_feed_metadata_by_name {
+
+    string feed_name = 1;
+    string namespace = 2;
+}

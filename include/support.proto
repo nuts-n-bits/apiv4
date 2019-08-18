@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package apiv4.support;
+
+message Credential {
+
+    bool is_unset = 1;
+    string session_id_bis = 3;
+    string session_secret = 4;
+}
+
+message Group_model {
+
+    string group_id_bis = 1;
+    string group_name_bis = 2;
+    repeated string group_permissions_id_bis = 3;
+}
+
+message Proof_of_work_required_to_continue {
+
+    string pow_worklet_identifier = 1;
+    enum Pow_type {
+        captcha_1 = 0;
+    }
+    Pow_type pow_type = 2;
+    string pow_challenge = 3;  // e.g. data uri that has a captcha image
+    string expiry_iso = 4;
+}
+
+message Proof_of_work_produced {
+
+    string pow_worklet_identifier = 1;
+    string pow_answer = 2;
+}
+

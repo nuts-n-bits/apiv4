@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+package apiv4.user;
+import "include/support.proto";
+
+message User_public_model {
+
+    string user_id_bis = 1;
+    string user_creation_time_iso = 2;
+    string user_name = 3;
+    string user_nick_name = 4;
+    repeated string user_groups = 5;
+    repeated string user_tags = 6;
+    repeated string user_activities = 7;
+}
+
+message User_private_model {
+
+    User_public_model user_public_model = 1;
+    string email = 2;
+    bool email_verified = 3;
+    string last_password_update_iso = 4;
+    repeated string bookmarks = 5;
+}
+
+enum Require_credential_expiry {
+    expiry_type_one_day = 0;
+    expiry_type_90_days = 1;
+}
+
+message Obtain_credential_by_password_naive_attempt {
+
+    oneof user_identification {
+        string user_name_normalized = 1;
+        string user_email_primary = 2;
+    }
+    string password = 3;
+    Require_credential_expiry require_expiry = 4;
+}
+
+message Obtain_credential_by_password_pow_1 {
+
+    oneof user_identification {
+        string user_name_normalized = 1;
+        string user_email_primary = 2;
+    }
+    string password = 3;
+    Require_credential_expiry require_expiry = 4;
+    apiv4.support.Proof_of_work_produced pow_product = 5;
+}
+
+message Reply_2fa_hmac_totp_required_to_obtain_credential {
+
+    string target_uid_bis = 1;
+    string intermediate_access_grant_token = 2;
+    string expiry_iso = 3;
+}
+
+message Obtain_credential_2fa_hmac_totp_code {
+
+    string target_uid_bis = 1;
+    string intermediate_access_grant_token = 2;
+    string totp_token = 3;
+}
+
+message Reply_2fa_mail_otp_step_0_verify_email_addr {
+
+    string target_uid_bis = 1;
+    string intermediate_access_grant_token = 2;
+    string email_hint = 3;
+    string expiry_iso = 4;
+}
+
+message Obtain_credential_mail_otp_step_0_response {
+    
+    string target_uid_bis = 1;
+    string intermediate_access_grant_token = 2;
+    string full_email = 3;
+}
+
+message Reply_2fa_mail_otp_step_1_mail_sent {
+
+    string expiry_iso = 1;
+}
+
+message Obtain_credential_mail_otp_step_1_response {
+
+    string target_uid_bis = 1;
+    string intermediate_access_grant_token = 2;
+    string mail_token = 3;
+}
+
+message Response_credential_granted {
+
+    apiv4.support.Credential credential = 1;
+    string expiry_iso = 2;
+}
+
