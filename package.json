@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/nuts-n-bits/apiv4#readme",
   "dependencies": {
-    "ts-protoc-gen": "^0.10.0"
+    "ts-protoc-gen": "^0.10.0",
+    "@types/google-protobuf": "^3.7.1"
   }
 }
