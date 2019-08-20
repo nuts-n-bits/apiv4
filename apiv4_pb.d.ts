@@ -188,6 +188,7 @@ export namespace Api_response_wrapper {
     INVALID_MESSAGE: 2;
     DNE: 3;
     MISSION_SPECIFIC: 4;
+    PROCEDURE_NOT_SUPPORTED: 5;
   }
 
   export const Broad_error_type: Broad_error_typeMap;

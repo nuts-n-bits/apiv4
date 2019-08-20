@@ -1006,7 +1006,8 @@ proto.Api_response_wrapper.Broad_error_type = {
   INSUFFICIENT_PERMISSION: 1,
   INVALID_MESSAGE: 2,
   DNE: 3,
-  MISSION_SPECIFIC: 4
+  MISSION_SPECIFIC: 4,
+  PROCEDURE_NOT_SUPPORTED: 5
 };
 
 /**

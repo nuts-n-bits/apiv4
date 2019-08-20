@@ -44,6 +44,7 @@ message Api_response_wrapper {
         invalid_message = 2;
         DNE = 3;
         mission_specific = 4;
+        procedure_not_supported = 5;
     }
 
     Broad_error_type error = 2;
