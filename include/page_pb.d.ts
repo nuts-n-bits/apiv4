@@ -18,11 +18,6 @@ export class Page_metadata extends jspb.Message {
   getPageIdBis(): string;
   setPageIdBis(value: string): void;
 
-  hasPageCreator(): boolean;
-  clearPageCreator(): void;
-  getPageCreator(): include_user_pb.User_public_model | undefined;
-  setPageCreator(value?: include_user_pb.User_public_model): void;
-
   getCreationTimeIso(): string;
   setCreationTimeIso(value: string): void;
 
@@ -41,6 +36,18 @@ export class Page_metadata extends jspb.Message {
   getEventIdBis(): string;
   setEventIdBis(value: string): void;
 
+  getCreatorDisplayName(): string;
+  setCreatorDisplayName(value: string): void;
+
+  getCreatorIdName(): string;
+  setCreatorIdName(value: string): void;
+
+  getCurrentEditorDisplayName(): string;
+  setCurrentEditorDisplayName(value: string): void;
+
+  getCurrentEditorIdName(): string;
+  setCurrentEditorIdName(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Page_metadata.AsObject;
   static toObject(includeInstance: boolean, msg: Page_metadata): Page_metadata.AsObject;
@@ -57,13 +64,16 @@ export namespace Page_metadata {
     namespace: string,
     languageCode: string,
     pageIdBis: string,
-    pageCreator?: include_user_pb.User_public_model.AsObject,
     creationTimeIso: string,
     updateTimeIso: string,
     viewPermissionIdBis: string,
     licensePageName: string,
     pageContentModel: string,
     eventIdBis: string,
+    creatorDisplayName: string,
+    creatorIdName: string,
+    currentEditorDisplayName: string,
+    currentEditorIdName: string,
   }
 }
 

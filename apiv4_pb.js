@@ -130,6 +130,7 @@ proto.Api_request_wrapper.prototype.toObject = function(opt_includeInstance) {
  */
 proto.Api_request_wrapper.toObject = function(includeInstance, msg) {
   var f, obj = {
+    messageVersion: jspb.Message.getFieldWithDefault(msg, 1, ""),
     credential: (f = msg.getCredential()) && include_support_pb.Credential.toObject(includeInstance, f),
     pageRenderingElements: (f = msg.getPageRenderingElements()) && include_page_pb.Request_page_rendering_elements_by_name.toObject(includeInstance, f),
     pageMetadata: (f = msg.getPageMetadata()) && include_page_pb.Request_page_metadata_by_name.toObject(includeInstance, f),
@@ -178,6 +179,10 @@ proto.Api_request_wrapper.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMessageVersion(value);
+      break;
+    case 2:
       var value = new include_support_pb.Credential;
       reader.readMessage(value,include_support_pb.Credential.deserializeBinaryFromReader);
       msg.setCredential(value);
@@ -261,10 +266,17 @@ proto.Api_request_wrapper.prototype.serializeBinary = function() {
  */
 proto.Api_request_wrapper.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getMessageVersion();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
   f = message.getCredential();
   if (f != null) {
     writer.writeMessage(
-      1,
+      2,
       f,
       include_support_pb.Credential.serializeBinaryToWriter
     );
@@ -353,18 +365,33 @@ proto.Api_request_wrapper.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional apiv4.support.Credential credential = 1;
+ * optional string message_version = 1;
+ * @return {string}
+ */
+proto.Api_request_wrapper.prototype.getMessageVersion = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/** @param {string} value */
+proto.Api_request_wrapper.prototype.setMessageVersion = function(value) {
+  jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional apiv4.support.Credential credential = 2;
  * @return {?proto.apiv4.support.Credential}
  */
 proto.Api_request_wrapper.prototype.getCredential = function() {
   return /** @type{?proto.apiv4.support.Credential} */ (
-    jspb.Message.getWrapperField(this, include_support_pb.Credential, 1));
+    jspb.Message.getWrapperField(this, include_support_pb.Credential, 2));
 };
 
 
 /** @param {?proto.apiv4.support.Credential|undefined} value */
 proto.Api_request_wrapper.prototype.setCredential = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  jspb.Message.setWrapperField(this, 2, value);
 };
 
 
@@ -381,7 +408,7 @@ proto.Api_request_wrapper.prototype.clearCredential = function() {
  * @return {boolean}
  */
 proto.Api_request_wrapper.prototype.hasCredential = function() {
-  return jspb.Message.getField(this, 1) != null;
+  return jspb.Message.getField(this, 2) != null;
 };
 
 
@@ -780,8 +807,9 @@ proto.Api_response_wrapper.prototype.toObject = function(opt_includeInstance) {
  */
 proto.Api_response_wrapper.toObject = function(includeInstance, msg) {
   var f, obj = {
-    executionOk: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
-    error: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    messageVersion: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    executionOk: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
+    error: jspb.Message.getFieldWithDefault(msg, 3, 0),
     pageRenderingElements: (f = msg.getPageRenderingElements()) && include_page_pb.Page_with_rendering_elements.toObject(includeInstance, f),
     pageMetadata: (f = msg.getPageMetadata()) && include_page_pb.Page_metadata.toObject(includeInstance, f),
     feedRenderingElements: (f = msg.getFeedRenderingElements()) && include_feed_pb.Feed_with_rendering_elements.toObject(includeInstance, f),
@@ -828,10 +856,14 @@ proto.Api_response_wrapper.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMessageVersion(value);
+      break;
+    case 2:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setExecutionOk(value);
       break;
-    case 2:
+    case 3:
       var value = /** @type {!proto.Api_response_wrapper.Broad_error_type} */ (reader.readEnum());
       msg.setError(value);
       break;
@@ -909,17 +941,24 @@ proto.Api_response_wrapper.prototype.serializeBinary = function() {
  */
 proto.Api_response_wrapper.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getMessageVersion();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
   f = message.getExecutionOk();
   if (f) {
     writer.writeBool(
-      1,
+      2,
       f
     );
   }
   f = message.getError();
   if (f !== 0.0) {
     writer.writeEnum(
-      2,
+      3,
       f
     );
   }
@@ -1007,36 +1046,53 @@ proto.Api_response_wrapper.Broad_error_type = {
   INVALID_MESSAGE: 2,
   DNE: 3,
   MISSION_SPECIFIC: 4,
-  PROCEDURE_NOT_SUPPORTED: 5
+  PROCEDURE_NOT_SUPPORTED: 5,
+  MESSAGE_VERSION_TOO_OLD: 6,
+  MESSAGE_VERSION_TOO_NEW: 7
 };
 
 /**
- * optional bool execution_ok = 1;
+ * optional string message_version = 1;
+ * @return {string}
+ */
+proto.Api_response_wrapper.prototype.getMessageVersion = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/** @param {string} value */
+proto.Api_response_wrapper.prototype.setMessageVersion = function(value) {
+  jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional bool execution_ok = 2;
  * @return {boolean}
  */
 proto.Api_response_wrapper.prototype.getExecutionOk = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 2, false));
 };
 
 
 /** @param {boolean} value */
 proto.Api_response_wrapper.prototype.setExecutionOk = function(value) {
-  jspb.Message.setProto3BooleanField(this, 1, value);
+  jspb.Message.setProto3BooleanField(this, 2, value);
 };
 
 
 /**
- * optional Broad_error_type error = 2;
+ * optional Broad_error_type error = 3;
  * @return {!proto.Api_response_wrapper.Broad_error_type}
  */
 proto.Api_response_wrapper.prototype.getError = function() {
-  return /** @type {!proto.Api_response_wrapper.Broad_error_type} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+  return /** @type {!proto.Api_response_wrapper.Broad_error_type} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
 /** @param {!proto.Api_response_wrapper.Broad_error_type} value */
 proto.Api_response_wrapper.prototype.setError = function(value) {
-  jspb.Message.setProto3EnumField(this, 2, value);
+  jspb.Message.setProto3EnumField(this, 3, value);
 };
 
 

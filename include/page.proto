@@ -11,13 +11,17 @@ message Page_metadata {
     string namespace = 2;
     string language_code = 3;
     string page_id_bis = 4;
-    apiv4.user.User_public_model page_creator = 5;
+    reserved 5;
     string creation_time_iso = 6;
     string update_time_iso = 7;
     string view_permission_id_bis = 8;
     string license_page_name = 9;
     string page_content_model = 10;
     string event_id_bis = 11;
+    string creator_display_name = 12;
+    string creator_id_name = 13;
+    string current_editor_display_name = 14;
+    string current_editor_id_name = 15;
 }
 
 message Page_with_rendering_elements {

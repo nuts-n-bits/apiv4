@@ -8,11 +8,6 @@ export class Revision_metadata extends jspb.Message {
   getRevIdBis(): string;
   setRevIdBis(value: string): void;
 
-  hasCreator(): boolean;
-  clearCreator(): void;
-  getCreator(): include_user_pb.User_public_model | undefined;
-  setCreator(value?: include_user_pb.User_public_model): void;
-
   getCreationTimeBis(): string;
   setCreationTimeBis(value: string): void;
 
@@ -21,6 +16,12 @@ export class Revision_metadata extends jspb.Message {
 
   getRelatedPageIdBis(): string;
   setRelatedPageIdBis(value: string): void;
+
+  getCreatorDisplayName(): string;
+  setCreatorDisplayName(value: string): void;
+
+  getCreatorIdName(): string;
+  setCreatorIdName(value: string): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Revision_metadata.AsObject;
@@ -35,10 +36,11 @@ export class Revision_metadata extends jspb.Message {
 export namespace Revision_metadata {
   export type AsObject = {
     revIdBis: string,
-    creator?: include_user_pb.User_public_model.AsObject,
     creationTimeBis: string,
     comment: string,
     relatedPageIdBis: string,
+    creatorDisplayName: string,
+    creatorIdName: string,
   }
 }
 

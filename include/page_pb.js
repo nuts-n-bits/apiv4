@@ -185,13 +185,16 @@ proto.apiv4.page.Page_metadata.toObject = function(includeInstance, msg) {
     namespace: jspb.Message.getFieldWithDefault(msg, 2, ""),
     languageCode: jspb.Message.getFieldWithDefault(msg, 3, ""),
     pageIdBis: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    pageCreator: (f = msg.getPageCreator()) && include_user_pb.User_public_model.toObject(includeInstance, f),
     creationTimeIso: jspb.Message.getFieldWithDefault(msg, 6, ""),
     updateTimeIso: jspb.Message.getFieldWithDefault(msg, 7, ""),
     viewPermissionIdBis: jspb.Message.getFieldWithDefault(msg, 8, ""),
     licensePageName: jspb.Message.getFieldWithDefault(msg, 9, ""),
     pageContentModel: jspb.Message.getFieldWithDefault(msg, 10, ""),
-    eventIdBis: jspb.Message.getFieldWithDefault(msg, 11, "")
+    eventIdBis: jspb.Message.getFieldWithDefault(msg, 11, ""),
+    creatorDisplayName: jspb.Message.getFieldWithDefault(msg, 12, ""),
+    creatorIdName: jspb.Message.getFieldWithDefault(msg, 13, ""),
+    currentEditorDisplayName: jspb.Message.getFieldWithDefault(msg, 14, ""),
+    currentEditorIdName: jspb.Message.getFieldWithDefault(msg, 15, "")
   };
 
   if (includeInstance) {
@@ -244,11 +247,6 @@ proto.apiv4.page.Page_metadata.deserializeBinaryFromReader = function(msg, reade
       var value = /** @type {string} */ (reader.readString());
       msg.setPageIdBis(value);
       break;
-    case 5:
-      var value = new include_user_pb.User_public_model;
-      reader.readMessage(value,include_user_pb.User_public_model.deserializeBinaryFromReader);
-      msg.setPageCreator(value);
-      break;
     case 6:
       var value = /** @type {string} */ (reader.readString());
       msg.setCreationTimeIso(value);
@@ -272,6 +270,22 @@ proto.apiv4.page.Page_metadata.deserializeBinaryFromReader = function(msg, reade
     case 11:
       var value = /** @type {string} */ (reader.readString());
       msg.setEventIdBis(value);
+      break;
+    case 12:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCreatorDisplayName(value);
+      break;
+    case 13:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCreatorIdName(value);
+      break;
+    case 14:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCurrentEditorDisplayName(value);
+      break;
+    case 15:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCurrentEditorIdName(value);
       break;
     default:
       reader.skipField();
@@ -330,14 +344,6 @@ proto.apiv4.page.Page_metadata.serializeBinaryToWriter = function(message, write
       f
     );
   }
-  f = message.getPageCreator();
-  if (f != null) {
-    writer.writeMessage(
-      5,
-      f,
-      include_user_pb.User_public_model.serializeBinaryToWriter
-    );
-  }
   f = message.getCreationTimeIso();
   if (f.length > 0) {
     writer.writeString(
@@ -377,6 +383,34 @@ proto.apiv4.page.Page_metadata.serializeBinaryToWriter = function(message, write
   if (f.length > 0) {
     writer.writeString(
       11,
+      f
+    );
+  }
+  f = message.getCreatorDisplayName();
+  if (f.length > 0) {
+    writer.writeString(
+      12,
+      f
+    );
+  }
+  f = message.getCreatorIdName();
+  if (f.length > 0) {
+    writer.writeString(
+      13,
+      f
+    );
+  }
+  f = message.getCurrentEditorDisplayName();
+  if (f.length > 0) {
+    writer.writeString(
+      14,
+      f
+    );
+  }
+  f = message.getCurrentEditorIdName();
+  if (f.length > 0) {
+    writer.writeString(
+      15,
       f
     );
   }
@@ -440,39 +474,6 @@ proto.apiv4.page.Page_metadata.prototype.getPageIdBis = function() {
 /** @param {string} value */
 proto.apiv4.page.Page_metadata.prototype.setPageIdBis = function(value) {
   jspb.Message.setProto3StringField(this, 4, value);
-};
-
-
-/**
- * optional apiv4.user.User_public_model page_creator = 5;
- * @return {?proto.apiv4.user.User_public_model}
- */
-proto.apiv4.page.Page_metadata.prototype.getPageCreator = function() {
-  return /** @type{?proto.apiv4.user.User_public_model} */ (
-    jspb.Message.getWrapperField(this, include_user_pb.User_public_model, 5));
-};
-
-
-/** @param {?proto.apiv4.user.User_public_model|undefined} value */
-proto.apiv4.page.Page_metadata.prototype.setPageCreator = function(value) {
-  jspb.Message.setWrapperField(this, 5, value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- */
-proto.apiv4.page.Page_metadata.prototype.clearPageCreator = function() {
-  this.setPageCreator(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.apiv4.page.Page_metadata.prototype.hasPageCreator = function() {
-  return jspb.Message.getField(this, 5) != null;
 };
 
 
@@ -563,6 +564,66 @@ proto.apiv4.page.Page_metadata.prototype.getEventIdBis = function() {
 /** @param {string} value */
 proto.apiv4.page.Page_metadata.prototype.setEventIdBis = function(value) {
   jspb.Message.setProto3StringField(this, 11, value);
+};
+
+
+/**
+ * optional string creator_display_name = 12;
+ * @return {string}
+ */
+proto.apiv4.page.Page_metadata.prototype.getCreatorDisplayName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
+};
+
+
+/** @param {string} value */
+proto.apiv4.page.Page_metadata.prototype.setCreatorDisplayName = function(value) {
+  jspb.Message.setProto3StringField(this, 12, value);
+};
+
+
+/**
+ * optional string creator_id_name = 13;
+ * @return {string}
+ */
+proto.apiv4.page.Page_metadata.prototype.getCreatorIdName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 13, ""));
+};
+
+
+/** @param {string} value */
+proto.apiv4.page.Page_metadata.prototype.setCreatorIdName = function(value) {
+  jspb.Message.setProto3StringField(this, 13, value);
+};
+
+
+/**
+ * optional string current_editor_display_name = 14;
+ * @return {string}
+ */
+proto.apiv4.page.Page_metadata.prototype.getCurrentEditorDisplayName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 14, ""));
+};
+
+
+/** @param {string} value */
+proto.apiv4.page.Page_metadata.prototype.setCurrentEditorDisplayName = function(value) {
+  jspb.Message.setProto3StringField(this, 14, value);
+};
+
+
+/**
+ * optional string current_editor_id_name = 15;
+ * @return {string}
+ */
+proto.apiv4.page.Page_metadata.prototype.getCurrentEditorIdName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+};
+
+
+/** @param {string} value */
+proto.apiv4.page.Page_metadata.prototype.setCurrentEditorIdName = function(value) {
+  jspb.Message.setProto3StringField(this, 15, value);
 };
 
 

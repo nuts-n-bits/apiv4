@@ -1,8 +1,7 @@
 // These messages are all for the same api endpoint that will always return
 // protobuf results. If you want raw data, or you can't use protobuf, please use ad-hoc api.
 
-// systematic: https://www.unblock-zh.org/api (receives and returns protobuf only)
-// ad-hoc: https://www.unblock-zh.org/api-ad-hoc (visit link and consult documentation)
+// current version: 4.0.1
 
 syntax = "proto3";
 import "include/support.proto";
@@ -14,7 +13,8 @@ import "include/user.proto";
 
 message Api_request_wrapper {
 
-    apiv4.support.Credential credential = 1;
+    string message_version = 1;
+    apiv4.support.Credential credential = 2;
 
     oneof actual_message {
 
@@ -36,7 +36,8 @@ message Api_request_wrapper {
 
 message Api_response_wrapper {
 
-    bool execution_ok = 1;
+    string message_version = 1;
+    bool execution_ok = 2;
 
     enum Broad_error_type {
         no_info = 0;
@@ -44,10 +45,12 @@ message Api_response_wrapper {
         invalid_message = 2;
         DNE = 3;
         mission_specific = 4;
-        procedure_not_supported = 5;
+        procedure_not_supported = 5;  // similar to NotImplementedError
+        message_version_too_old = 6;
+        message_version_too_new = 7;
     }
 
-    Broad_error_type error = 2;
+    Broad_error_type error = 3;
 
     oneof actual_message {
         apiv4.page.Page_with_rendering_elements page_rendering_elements = 11;

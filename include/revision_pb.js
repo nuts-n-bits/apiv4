@@ -68,10 +68,11 @@ proto.apiv4.revision.Revision_metadata.prototype.toObject = function(opt_include
 proto.apiv4.revision.Revision_metadata.toObject = function(includeInstance, msg) {
   var f, obj = {
     revIdBis: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    creator: (f = msg.getCreator()) && include_user_pb.User_public_model.toObject(includeInstance, f),
     creationTimeBis: jspb.Message.getFieldWithDefault(msg, 3, ""),
     comment: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    relatedPageIdBis: jspb.Message.getFieldWithDefault(msg, 5, "")
+    relatedPageIdBis: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    creatorDisplayName: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    creatorIdName: jspb.Message.getFieldWithDefault(msg, 7, "")
   };
 
   if (includeInstance) {
@@ -112,11 +113,6 @@ proto.apiv4.revision.Revision_metadata.deserializeBinaryFromReader = function(ms
       var value = /** @type {string} */ (reader.readString());
       msg.setRevIdBis(value);
       break;
-    case 2:
-      var value = new include_user_pb.User_public_model;
-      reader.readMessage(value,include_user_pb.User_public_model.deserializeBinaryFromReader);
-      msg.setCreator(value);
-      break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
       msg.setCreationTimeBis(value);
@@ -128,6 +124,14 @@ proto.apiv4.revision.Revision_metadata.deserializeBinaryFromReader = function(ms
     case 5:
       var value = /** @type {string} */ (reader.readString());
       msg.setRelatedPageIdBis(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCreatorDisplayName(value);
+      break;
+    case 7:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCreatorIdName(value);
       break;
     default:
       reader.skipField();
@@ -165,14 +169,6 @@ proto.apiv4.revision.Revision_metadata.serializeBinaryToWriter = function(messag
       f
     );
   }
-  f = message.getCreator();
-  if (f != null) {
-    writer.writeMessage(
-      2,
-      f,
-      include_user_pb.User_public_model.serializeBinaryToWriter
-    );
-  }
   f = message.getCreationTimeBis();
   if (f.length > 0) {
     writer.writeString(
@@ -194,6 +190,20 @@ proto.apiv4.revision.Revision_metadata.serializeBinaryToWriter = function(messag
       f
     );
   }
+  f = message.getCreatorDisplayName();
+  if (f.length > 0) {
+    writer.writeString(
+      6,
+      f
+    );
+  }
+  f = message.getCreatorIdName();
+  if (f.length > 0) {
+    writer.writeString(
+      7,
+      f
+    );
+  }
 };
 
 
@@ -209,39 +219,6 @@ proto.apiv4.revision.Revision_metadata.prototype.getRevIdBis = function() {
 /** @param {string} value */
 proto.apiv4.revision.Revision_metadata.prototype.setRevIdBis = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional apiv4.user.User_public_model creator = 2;
- * @return {?proto.apiv4.user.User_public_model}
- */
-proto.apiv4.revision.Revision_metadata.prototype.getCreator = function() {
-  return /** @type{?proto.apiv4.user.User_public_model} */ (
-    jspb.Message.getWrapperField(this, include_user_pb.User_public_model, 2));
-};
-
-
-/** @param {?proto.apiv4.user.User_public_model|undefined} value */
-proto.apiv4.revision.Revision_metadata.prototype.setCreator = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- */
-proto.apiv4.revision.Revision_metadata.prototype.clearCreator = function() {
-  this.setCreator(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.apiv4.revision.Revision_metadata.prototype.hasCreator = function() {
-  return jspb.Message.getField(this, 2) != null;
 };
 
 
@@ -287,6 +264,36 @@ proto.apiv4.revision.Revision_metadata.prototype.getRelatedPageIdBis = function(
 /** @param {string} value */
 proto.apiv4.revision.Revision_metadata.prototype.setRelatedPageIdBis = function(value) {
   jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string creator_display_name = 6;
+ * @return {string}
+ */
+proto.apiv4.revision.Revision_metadata.prototype.getCreatorDisplayName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/** @param {string} value */
+proto.apiv4.revision.Revision_metadata.prototype.setCreatorDisplayName = function(value) {
+  jspb.Message.setProto3StringField(this, 6, value);
+};
+
+
+/**
+ * optional string creator_id_name = 7;
+ * @return {string}
+ */
+proto.apiv4.revision.Revision_metadata.prototype.getCreatorIdName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+};
+
+
+/** @param {string} value */
+proto.apiv4.revision.Revision_metadata.prototype.setCreatorIdName = function(value) {
+  jspb.Message.setProto3StringField(this, 7, value);
 };
 
 

@@ -8,6 +8,9 @@ import * as include_feed_pb from "./include/feed_pb";
 import * as include_user_pb from "./include/user_pb";
 
 export class Api_request_wrapper extends jspb.Message {
+  getMessageVersion(): string;
+  setMessageVersion(value: string): void;
+
   hasCredential(): boolean;
   clearCredential(): void;
   getCredential(): include_support_pb.Credential | undefined;
@@ -76,6 +79,7 @@ export class Api_request_wrapper extends jspb.Message {
 
 export namespace Api_request_wrapper {
   export type AsObject = {
+    messageVersion: string,
     credential?: include_support_pb.Credential.AsObject,
     pageRenderingElements?: include_page_pb.Request_page_rendering_elements_by_name.AsObject,
     pageMetadata?: include_page_pb.Request_page_metadata_by_name.AsObject,
@@ -105,6 +109,9 @@ export namespace Api_request_wrapper {
 }
 
 export class Api_response_wrapper extends jspb.Message {
+  getMessageVersion(): string;
+  setMessageVersion(value: string): void;
+
   getExecutionOk(): boolean;
   setExecutionOk(value: boolean): void;
 
@@ -169,6 +176,7 @@ export class Api_response_wrapper extends jspb.Message {
 
 export namespace Api_response_wrapper {
   export type AsObject = {
+    messageVersion: string,
     executionOk: boolean,
     error: Api_response_wrapper.Broad_error_typeMap[keyof Api_response_wrapper.Broad_error_typeMap],
     pageRenderingElements?: include_page_pb.Page_with_rendering_elements.AsObject,
@@ -189,6 +197,8 @@ export namespace Api_response_wrapper {
     DNE: 3;
     MISSION_SPECIFIC: 4;
     PROCEDURE_NOT_SUPPORTED: 5;
+    MESSAGE_VERSION_TOO_OLD: 6;
+    MESSAGE_VERSION_TOO_NEW: 7;
   }
 
   export const Broad_error_type: Broad_error_typeMap;
