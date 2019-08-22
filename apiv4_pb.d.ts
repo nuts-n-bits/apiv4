@@ -26,10 +26,10 @@ export class Api_request_wrapper extends jspb.Message {
   getPageMetadata(): include_page_pb.Request_page_metadata_by_name | undefined;
   setPageMetadata(value?: include_page_pb.Request_page_metadata_by_name): void;
 
-  hasCreatePage(): boolean;
-  clearCreatePage(): void;
-  getCreatePage(): include_page_pb.Request_create_page | undefined;
-  setCreatePage(value?: include_page_pb.Request_create_page): void;
+  hasCreateOrEditPage(): boolean;
+  clearCreateOrEditPage(): void;
+  getCreateOrEditPage(): include_page_pb.Request_create_or_edit_page | undefined;
+  setCreateOrEditPage(value?: include_page_pb.Request_create_or_edit_page): void;
 
   hasFeedRenderingElements(): boolean;
   clearFeedRenderingElements(): void;
@@ -83,7 +83,7 @@ export namespace Api_request_wrapper {
     credential?: include_support_pb.Credential.AsObject,
     pageRenderingElements?: include_page_pb.Request_page_rendering_elements_by_name.AsObject,
     pageMetadata?: include_page_pb.Request_page_metadata_by_name.AsObject,
-    createPage?: include_page_pb.Request_create_page.AsObject,
+    createOrEditPage?: include_page_pb.Request_create_or_edit_page.AsObject,
     feedRenderingElements?: include_feed_pb.Request_feed_rendering_elements_by_name.AsObject,
     feedMetadata?: include_feed_pb.Request_feed_metadata_by_name.AsObject,
     signInPwdNaive?: include_user_pb.Obtain_credential_by_password_naive_attempt.AsObject,
@@ -97,7 +97,7 @@ export namespace Api_request_wrapper {
     ACTUAL_MESSAGE_NOT_SET = 0,
     PAGE_RENDERING_ELEMENTS = 11,
     PAGE_METADATA = 12,
-    CREATE_PAGE = 13,
+    CREATE_OR_EDIT_PAGE = 13,
     FEED_RENDERING_ELEMENTS = 21,
     FEED_METADATA = 22,
     SIGN_IN_PWD_NAIVE = 31,

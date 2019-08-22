@@ -82,7 +82,7 @@ proto.Api_request_wrapper.ActualMessageCase = {
   ACTUAL_MESSAGE_NOT_SET: 0,
   PAGE_RENDERING_ELEMENTS: 11,
   PAGE_METADATA: 12,
-  CREATE_PAGE: 13,
+  CREATE_OR_EDIT_PAGE: 13,
   FEED_RENDERING_ELEMENTS: 21,
   FEED_METADATA: 22,
   SIGN_IN_PWD_NAIVE: 31,
@@ -134,7 +134,7 @@ proto.Api_request_wrapper.toObject = function(includeInstance, msg) {
     credential: (f = msg.getCredential()) && include_support_pb.Credential.toObject(includeInstance, f),
     pageRenderingElements: (f = msg.getPageRenderingElements()) && include_page_pb.Request_page_rendering_elements_by_name.toObject(includeInstance, f),
     pageMetadata: (f = msg.getPageMetadata()) && include_page_pb.Request_page_metadata_by_name.toObject(includeInstance, f),
-    createPage: (f = msg.getCreatePage()) && include_page_pb.Request_create_page.toObject(includeInstance, f),
+    createOrEditPage: (f = msg.getCreateOrEditPage()) && include_page_pb.Request_create_or_edit_page.toObject(includeInstance, f),
     feedRenderingElements: (f = msg.getFeedRenderingElements()) && include_feed_pb.Request_feed_rendering_elements_by_name.toObject(includeInstance, f),
     feedMetadata: (f = msg.getFeedMetadata()) && include_feed_pb.Request_feed_metadata_by_name.toObject(includeInstance, f),
     signInPwdNaive: (f = msg.getSignInPwdNaive()) && include_user_pb.Obtain_credential_by_password_naive_attempt.toObject(includeInstance, f),
@@ -198,9 +198,9 @@ proto.Api_request_wrapper.deserializeBinaryFromReader = function(msg, reader) {
       msg.setPageMetadata(value);
       break;
     case 13:
-      var value = new include_page_pb.Request_create_page;
-      reader.readMessage(value,include_page_pb.Request_create_page.deserializeBinaryFromReader);
-      msg.setCreatePage(value);
+      var value = new include_page_pb.Request_create_or_edit_page;
+      reader.readMessage(value,include_page_pb.Request_create_or_edit_page.deserializeBinaryFromReader);
+      msg.setCreateOrEditPage(value);
       break;
     case 21:
       var value = new include_feed_pb.Request_feed_rendering_elements_by_name;
@@ -297,12 +297,12 @@ proto.Api_request_wrapper.serializeBinaryToWriter = function(message, writer) {
       include_page_pb.Request_page_metadata_by_name.serializeBinaryToWriter
     );
   }
-  f = message.getCreatePage();
+  f = message.getCreateOrEditPage();
   if (f != null) {
     writer.writeMessage(
       13,
       f,
-      include_page_pb.Request_create_page.serializeBinaryToWriter
+      include_page_pb.Request_create_or_edit_page.serializeBinaryToWriter
     );
   }
   f = message.getFeedRenderingElements();
@@ -479,17 +479,17 @@ proto.Api_request_wrapper.prototype.hasPageMetadata = function() {
 
 
 /**
- * optional apiv4.page.Request_create_page create_page = 13;
- * @return {?proto.apiv4.page.Request_create_page}
+ * optional apiv4.page.Request_create_or_edit_page create_or_edit_page = 13;
+ * @return {?proto.apiv4.page.Request_create_or_edit_page}
  */
-proto.Api_request_wrapper.prototype.getCreatePage = function() {
-  return /** @type{?proto.apiv4.page.Request_create_page} */ (
-    jspb.Message.getWrapperField(this, include_page_pb.Request_create_page, 13));
+proto.Api_request_wrapper.prototype.getCreateOrEditPage = function() {
+  return /** @type{?proto.apiv4.page.Request_create_or_edit_page} */ (
+    jspb.Message.getWrapperField(this, include_page_pb.Request_create_or_edit_page, 13));
 };
 
 
-/** @param {?proto.apiv4.page.Request_create_page|undefined} value */
-proto.Api_request_wrapper.prototype.setCreatePage = function(value) {
+/** @param {?proto.apiv4.page.Request_create_or_edit_page|undefined} value */
+proto.Api_request_wrapper.prototype.setCreateOrEditPage = function(value) {
   jspb.Message.setOneofWrapperField(this, 13, proto.Api_request_wrapper.oneofGroups_[0], value);
 };
 
@@ -497,8 +497,8 @@ proto.Api_request_wrapper.prototype.setCreatePage = function(value) {
 /**
  * Clears the message field making it undefined.
  */
-proto.Api_request_wrapper.prototype.clearCreatePage = function() {
-  this.setCreatePage(undefined);
+proto.Api_request_wrapper.prototype.clearCreateOrEditPage = function() {
+  this.setCreateOrEditPage(undefined);
 };
 
 
@@ -506,7 +506,7 @@ proto.Api_request_wrapper.prototype.clearCreatePage = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.Api_request_wrapper.prototype.hasCreatePage = function() {
+proto.Api_request_wrapper.prototype.hasCreateOrEditPage = function() {
   return jspb.Message.getField(this, 13) != null;
 };
 

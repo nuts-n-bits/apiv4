@@ -149,7 +149,7 @@ export namespace Request_page_metadata_by_name {
   }
 }
 
-export class Request_create_page extends jspb.Message {
+export class Request_create_or_edit_page extends jspb.Message {
   getPageName(): string;
   setPageName(value: string): void;
 
@@ -159,29 +159,33 @@ export class Request_create_page extends jspb.Message {
   getRevisionComment(): string;
   setRevisionComment(value: string): void;
 
-  getVisibility(): Request_create_page.VisibilityMap[keyof Request_create_page.VisibilityMap];
-  setVisibility(value: Request_create_page.VisibilityMap[keyof Request_create_page.VisibilityMap]): void;
+  getVisibility(): Request_create_or_edit_page.VisibilityMap[keyof Request_create_or_edit_page.VisibilityMap];
+  setVisibility(value: Request_create_or_edit_page.VisibilityMap[keyof Request_create_or_edit_page.VisibilityMap]): void;
 
   getContentType(): string;
   setContentType(value: string): void;
 
+  getLanguageCode(): string;
+  setLanguageCode(value: string): void;
+
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Request_create_page.AsObject;
-  static toObject(includeInstance: boolean, msg: Request_create_page): Request_create_page.AsObject;
+  toObject(includeInstance?: boolean): Request_create_or_edit_page.AsObject;
+  static toObject(includeInstance: boolean, msg: Request_create_or_edit_page): Request_create_or_edit_page.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Request_create_page, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Request_create_page;
-  static deserializeBinaryFromReader(message: Request_create_page, reader: jspb.BinaryReader): Request_create_page;
+  static serializeBinaryToWriter(message: Request_create_or_edit_page, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Request_create_or_edit_page;
+  static deserializeBinaryFromReader(message: Request_create_or_edit_page, reader: jspb.BinaryReader): Request_create_or_edit_page;
 }
 
-export namespace Request_create_page {
+export namespace Request_create_or_edit_page {
   export type AsObject = {
     pageName: string,
     content: string,
     revisionComment: string,
-    visibility: Request_create_page.VisibilityMap[keyof Request_create_page.VisibilityMap],
+    visibility: Request_create_or_edit_page.VisibilityMap[keyof Request_create_or_edit_page.VisibilityMap],
     contentType: string,
+    languageCode: string,
   }
 
   export interface VisibilityMap {
@@ -193,46 +197,85 @@ export namespace Request_create_page {
   export const Visibility: VisibilityMap;
 }
 
-export class Request_page_revision_rendering_elements_by_page_name_ns extends jspb.Message {
-  getName(): string;
-  setName(value: string): void;
+export class Request_history_rendering_elements_by_page_name_ns extends jspb.Message {
+  getPageApparentName(): string;
+  setPageApparentName(value: string): void;
 
-  getDirection(): Request_page_revision_rendering_elements_by_page_name_ns.DirectionMap[keyof Request_page_revision_rendering_elements_by_page_name_ns.DirectionMap];
-  setDirection(value: Request_page_revision_rendering_elements_by_page_name_ns.DirectionMap[keyof Request_page_revision_rendering_elements_by_page_name_ns.DirectionMap]): void;
+  getDirection(): Request_history_rendering_elements_by_page_name_ns.DirectionMap[keyof Request_history_rendering_elements_by_page_name_ns.DirectionMap];
+  setDirection(value: Request_history_rendering_elements_by_page_name_ns.DirectionMap[keyof Request_history_rendering_elements_by_page_name_ns.DirectionMap]): void;
 
-  hasIdBis(): boolean;
-  clearIdBis(): void;
-  getIdBis(): string;
-  setIdBis(value: string): void;
+  getStartFromMiddle(): boolean;
+  setStartFromMiddle(value: boolean): void;
 
-  getStartFromPageIdBisCase(): Request_page_revision_rendering_elements_by_page_name_ns.StartFromPageIdBisCase;
+  hasRevIdBisNoninclusive(): boolean;
+  clearRevIdBisNoninclusive(): void;
+  getRevIdBisNoninclusive(): string;
+  setRevIdBisNoninclusive(value: string): void;
+
+  hasTimestampIsoNoninclusive(): boolean;
+  clearTimestampIsoNoninclusive(): void;
+  getTimestampIsoNoninclusive(): string;
+  setTimestampIsoNoninclusive(value: string): void;
+
+  getStartFromCase(): Request_history_rendering_elements_by_page_name_ns.StartFromCase;
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Request_page_revision_rendering_elements_by_page_name_ns.AsObject;
-  static toObject(includeInstance: boolean, msg: Request_page_revision_rendering_elements_by_page_name_ns): Request_page_revision_rendering_elements_by_page_name_ns.AsObject;
+  toObject(includeInstance?: boolean): Request_history_rendering_elements_by_page_name_ns.AsObject;
+  static toObject(includeInstance: boolean, msg: Request_history_rendering_elements_by_page_name_ns): Request_history_rendering_elements_by_page_name_ns.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Request_page_revision_rendering_elements_by_page_name_ns, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Request_page_revision_rendering_elements_by_page_name_ns;
-  static deserializeBinaryFromReader(message: Request_page_revision_rendering_elements_by_page_name_ns, reader: jspb.BinaryReader): Request_page_revision_rendering_elements_by_page_name_ns;
+  static serializeBinaryToWriter(message: Request_history_rendering_elements_by_page_name_ns, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Request_history_rendering_elements_by_page_name_ns;
+  static deserializeBinaryFromReader(message: Request_history_rendering_elements_by_page_name_ns, reader: jspb.BinaryReader): Request_history_rendering_elements_by_page_name_ns;
 }
 
-export namespace Request_page_revision_rendering_elements_by_page_name_ns {
+export namespace Request_history_rendering_elements_by_page_name_ns {
   export type AsObject = {
-    name: string,
-    direction: Request_page_revision_rendering_elements_by_page_name_ns.DirectionMap[keyof Request_page_revision_rendering_elements_by_page_name_ns.DirectionMap],
-    idBis: string,
+    pageApparentName: string,
+    direction: Request_history_rendering_elements_by_page_name_ns.DirectionMap[keyof Request_history_rendering_elements_by_page_name_ns.DirectionMap],
+    startFromMiddle: boolean,
+    revIdBisNoninclusive: string,
+    timestampIsoNoninclusive: string,
   }
 
   export interface DirectionMap {
-    NEWEST_FIRST: 0;
-    OLDEST_FIRST: 1;
+    NEW_TO_OLD: 0;
+    OLD_TO_NEW: 1;
   }
 
   export const Direction: DirectionMap;
 
-  export enum StartFromPageIdBisCase {
-    START_FROM_PAGE_ID_BIS_NOT_SET = 0,
-    ID_BIS = 4,
+  export enum StartFromCase {
+    START_FROM_NOT_SET = 0,
+    REV_ID_BIS_NONINCLUSIVE = 4,
+    TIMESTAMP_ISO_NONINCLUSIVE = 5,
+  }
+}
+
+export class Page_creation_report extends jspb.Message {
+  getSuccess(): boolean;
+  setSuccess(value: boolean): void;
+
+  getNewPidBis(): string;
+  setNewPidBis(value: string): void;
+
+  getNewApparentPageName(): string;
+  setNewApparentPageName(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Page_creation_report.AsObject;
+  static toObject(includeInstance: boolean, msg: Page_creation_report): Page_creation_report.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Page_creation_report, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Page_creation_report;
+  static deserializeBinaryFromReader(message: Page_creation_report, reader: jspb.BinaryReader): Page_creation_report;
+}
+
+export namespace Page_creation_report {
+  export type AsObject = {
+    success: boolean,
+    newPidBis: string,
+    newApparentPageName: string,
   }
 }
 

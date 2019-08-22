@@ -20,7 +20,7 @@ message Api_request_wrapper {
 
         apiv4.page.Request_page_rendering_elements_by_name page_rendering_elements = 11;
         apiv4.page.Request_page_metadata_by_name page_metadata = 12;
-        apiv4.page.Request_create_page create_page = 13;
+        apiv4.page.Request_create_or_edit_page create_or_edit_page = 13;
         apiv4.feed.Request_feed_rendering_elements_by_name feed_rendering_elements = 21;
         apiv4.feed.Request_feed_metadata_by_name feed_metadata = 22;
         apiv4.user.Obtain_credential_by_password_naive_attempt sign_in_pwd_naive = 31;
