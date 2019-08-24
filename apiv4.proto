@@ -51,6 +51,7 @@ message Api_response_wrapper {
     }
 
     Broad_error_type error = 3;
+    string mission_specific_error = 4;
 
     oneof actual_message {
         apiv4.page.Page_with_rendering_elements page_rendering_elements = 11;

@@ -118,6 +118,9 @@ export class Api_response_wrapper extends jspb.Message {
   getError(): Api_response_wrapper.Broad_error_typeMap[keyof Api_response_wrapper.Broad_error_typeMap];
   setError(value: Api_response_wrapper.Broad_error_typeMap[keyof Api_response_wrapper.Broad_error_typeMap]): void;
 
+  getMissionSpecificError(): string;
+  setMissionSpecificError(value: string): void;
+
   hasPageRenderingElements(): boolean;
   clearPageRenderingElements(): void;
   getPageRenderingElements(): include_page_pb.Page_with_rendering_elements | undefined;
@@ -179,6 +182,7 @@ export namespace Api_response_wrapper {
     messageVersion: string,
     executionOk: boolean,
     error: Api_response_wrapper.Broad_error_typeMap[keyof Api_response_wrapper.Broad_error_typeMap],
+    missionSpecificError: string,
     pageRenderingElements?: include_page_pb.Page_with_rendering_elements.AsObject,
     pageMetadata?: include_page_pb.Page_metadata.AsObject,
     feedRenderingElements?: include_feed_pb.Feed_with_rendering_elements.AsObject,

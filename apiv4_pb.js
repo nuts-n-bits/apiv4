@@ -810,6 +810,7 @@ proto.Api_response_wrapper.toObject = function(includeInstance, msg) {
     messageVersion: jspb.Message.getFieldWithDefault(msg, 1, ""),
     executionOk: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
     error: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    missionSpecificError: jspb.Message.getFieldWithDefault(msg, 4, ""),
     pageRenderingElements: (f = msg.getPageRenderingElements()) && include_page_pb.Page_with_rendering_elements.toObject(includeInstance, f),
     pageMetadata: (f = msg.getPageMetadata()) && include_page_pb.Page_metadata.toObject(includeInstance, f),
     feedRenderingElements: (f = msg.getFeedRenderingElements()) && include_feed_pb.Feed_with_rendering_elements.toObject(includeInstance, f),
@@ -866,6 +867,10 @@ proto.Api_response_wrapper.deserializeBinaryFromReader = function(msg, reader) {
     case 3:
       var value = /** @type {!proto.Api_response_wrapper.Broad_error_type} */ (reader.readEnum());
       msg.setError(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMissionSpecificError(value);
       break;
     case 11:
       var value = new include_page_pb.Page_with_rendering_elements;
@@ -959,6 +964,13 @@ proto.Api_response_wrapper.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0.0) {
     writer.writeEnum(
       3,
+      f
+    );
+  }
+  f = message.getMissionSpecificError();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
       f
     );
   }
@@ -1093,6 +1105,21 @@ proto.Api_response_wrapper.prototype.getError = function() {
 /** @param {!proto.Api_response_wrapper.Broad_error_type} value */
 proto.Api_response_wrapper.prototype.setError = function(value) {
   jspb.Message.setProto3EnumField(this, 3, value);
+};
+
+
+/**
+ * optional string mission_specific_error = 4;
+ * @return {string}
+ */
+proto.Api_response_wrapper.prototype.getMissionSpecificError = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.Api_response_wrapper.prototype.setMissionSpecificError = function(value) {
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
