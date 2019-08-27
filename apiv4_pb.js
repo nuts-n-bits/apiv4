@@ -132,6 +132,7 @@ proto.Api_request_wrapper.toObject = function(includeInstance, msg) {
   var f, obj = {
     messageVersion: jspb.Message.getFieldWithDefault(msg, 1, ""),
     credential: (f = msg.getCredential()) && include_support_pb.Credential.toObject(includeInstance, f),
+    powReply: (f = msg.getPowReply()) && include_support_pb.Proof_of_work_produced.toObject(includeInstance, f),
     pageRenderingElements: (f = msg.getPageRenderingElements()) && include_page_pb.Request_page_rendering_elements_by_name.toObject(includeInstance, f),
     pageMetadata: (f = msg.getPageMetadata()) && include_page_pb.Request_page_metadata_by_name.toObject(includeInstance, f),
     createOrEditPage: (f = msg.getCreateOrEditPage()) && include_page_pb.Request_create_or_edit_page.toObject(includeInstance, f),
@@ -186,6 +187,11 @@ proto.Api_request_wrapper.deserializeBinaryFromReader = function(msg, reader) {
       var value = new include_support_pb.Credential;
       reader.readMessage(value,include_support_pb.Credential.deserializeBinaryFromReader);
       msg.setCredential(value);
+      break;
+    case 3:
+      var value = new include_support_pb.Proof_of_work_produced;
+      reader.readMessage(value,include_support_pb.Proof_of_work_produced.deserializeBinaryFromReader);
+      msg.setPowReply(value);
       break;
     case 11:
       var value = new include_page_pb.Request_page_rendering_elements_by_name;
@@ -279,6 +285,14 @@ proto.Api_request_wrapper.serializeBinaryToWriter = function(message, writer) {
       2,
       f,
       include_support_pb.Credential.serializeBinaryToWriter
+    );
+  }
+  f = message.getPowReply();
+  if (f != null) {
+    writer.writeMessage(
+      3,
+      f,
+      include_support_pb.Proof_of_work_produced.serializeBinaryToWriter
     );
   }
   f = message.getPageRenderingElements();
@@ -409,6 +423,39 @@ proto.Api_request_wrapper.prototype.clearCredential = function() {
  */
 proto.Api_request_wrapper.prototype.hasCredential = function() {
   return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * optional apiv4.support.Proof_of_work_produced pow_reply = 3;
+ * @return {?proto.apiv4.support.Proof_of_work_produced}
+ */
+proto.Api_request_wrapper.prototype.getPowReply = function() {
+  return /** @type{?proto.apiv4.support.Proof_of_work_produced} */ (
+    jspb.Message.getWrapperField(this, include_support_pb.Proof_of_work_produced, 3));
+};
+
+
+/** @param {?proto.apiv4.support.Proof_of_work_produced|undefined} value */
+proto.Api_request_wrapper.prototype.setPowReply = function(value) {
+  jspb.Message.setWrapperField(this, 3, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ */
+proto.Api_request_wrapper.prototype.clearPowReply = function() {
+  this.setPowReply(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.Api_request_wrapper.prototype.hasPowReply = function() {
+  return jspb.Message.getField(this, 3) != null;
 };
 
 

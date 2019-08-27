@@ -4,9 +4,8 @@ package apiv4.support;
 
 message Credential {
 
-    bool is_unset = 1;
-    string session_id_bis = 3;
-    string session_secret = 4;
+    string session_id_bis = 1;
+    string session_secret = 2;
 }
 
 message Group_model {

@@ -4,9 +4,6 @@
 import * as jspb from "google-protobuf";
 
 export class Credential extends jspb.Message {
-  getIsUnset(): boolean;
-  setIsUnset(value: boolean): void;
-
   getSessionIdBis(): string;
   setSessionIdBis(value: string): void;
 
@@ -25,7 +22,6 @@ export class Credential extends jspb.Message {
 
 export namespace Credential {
   export type AsObject = {
-    isUnset: boolean,
     sessionIdBis: string,
     sessionSecret: string,
   }

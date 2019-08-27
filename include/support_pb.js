@@ -132,9 +132,8 @@ proto.apiv4.support.Credential.prototype.toObject = function(opt_includeInstance
  */
 proto.apiv4.support.Credential.toObject = function(includeInstance, msg) {
   var f, obj = {
-    isUnset: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
-    sessionIdBis: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    sessionSecret: jspb.Message.getFieldWithDefault(msg, 4, "")
+    sessionIdBis: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    sessionSecret: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -172,14 +171,10 @@ proto.apiv4.support.Credential.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setIsUnset(value);
-      break;
-    case 3:
       var value = /** @type {string} */ (reader.readString());
       msg.setSessionIdBis(value);
       break;
-    case 4:
+    case 2:
       var value = /** @type {string} */ (reader.readString());
       msg.setSessionSecret(value);
       break;
@@ -212,24 +207,17 @@ proto.apiv4.support.Credential.prototype.serializeBinary = function() {
  */
 proto.apiv4.support.Credential.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getIsUnset();
-  if (f) {
-    writer.writeBool(
-      1,
-      f
-    );
-  }
   f = message.getSessionIdBis();
   if (f.length > 0) {
     writer.writeString(
-      3,
+      1,
       f
     );
   }
   f = message.getSessionSecret();
   if (f.length > 0) {
     writer.writeString(
-      4,
+      2,
       f
     );
   }
@@ -237,47 +225,32 @@ proto.apiv4.support.Credential.serializeBinaryToWriter = function(message, write
 
 
 /**
- * optional bool is_unset = 1;
- * @return {boolean}
- */
-proto.apiv4.support.Credential.prototype.getIsUnset = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
-};
-
-
-/** @param {boolean} value */
-proto.apiv4.support.Credential.prototype.setIsUnset = function(value) {
-  jspb.Message.setProto3BooleanField(this, 1, value);
-};
-
-
-/**
- * optional string session_id_bis = 3;
+ * optional string session_id_bis = 1;
  * @return {string}
  */
 proto.apiv4.support.Credential.prototype.getSessionIdBis = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
 proto.apiv4.support.Credential.prototype.setSessionIdBis = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * optional string session_secret = 4;
+ * optional string session_secret = 2;
  * @return {string}
  */
 proto.apiv4.support.Credential.prototype.getSessionSecret = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /** @param {string} value */
 proto.apiv4.support.Credential.prototype.setSessionSecret = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

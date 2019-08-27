@@ -15,7 +15,7 @@ message Page_metadata {
     string creation_time_iso = 6;
     string update_time_iso = 7;
     string view_permission_id_bis = 8;
-    string license_page_name = 9;
+    string license_name = 9;
     string page_content_model = 10;
     string event_id_bis = 11;
     string creator_display_name = 12;
@@ -49,6 +49,7 @@ message Request_create_or_edit_page {
     Visibility visibility = 5;
     string content_type = 6;
     string language_code = 7;
+    string license_name = 8;
 
     enum Visibility {
         all_visible = 0;

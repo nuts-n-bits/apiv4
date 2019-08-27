@@ -15,6 +15,7 @@ message Api_request_wrapper {
 
     string message_version = 1;
     apiv4.support.Credential credential = 2;
+    apiv4.support.Proof_of_work_produced pow_reply = 3;
 
     oneof actual_message {
 
