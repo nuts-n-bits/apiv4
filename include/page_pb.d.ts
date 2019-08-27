@@ -27,8 +27,8 @@ export class Page_metadata extends jspb.Message {
   getViewPermissionIdBis(): string;
   setViewPermissionIdBis(value: string): void;
 
-  getLicensePageName(): string;
-  setLicensePageName(value: string): void;
+  getLicenseName(): string;
+  setLicenseName(value: string): void;
 
   getPageContentModel(): string;
   setPageContentModel(value: string): void;
@@ -67,7 +67,7 @@ export namespace Page_metadata {
     creationTimeIso: string,
     updateTimeIso: string,
     viewPermissionIdBis: string,
-    licensePageName: string,
+    licenseName: string,
     pageContentModel: string,
     eventIdBis: string,
     creatorDisplayName: string,
@@ -168,6 +168,9 @@ export class Request_create_or_edit_page extends jspb.Message {
   getLanguageCode(): string;
   setLanguageCode(value: string): void;
 
+  getLicenseName(): string;
+  setLicenseName(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Request_create_or_edit_page.AsObject;
   static toObject(includeInstance: boolean, msg: Request_create_or_edit_page): Request_create_or_edit_page.AsObject;
@@ -186,6 +189,7 @@ export namespace Request_create_or_edit_page {
     visibility: Request_create_or_edit_page.VisibilityMap[keyof Request_create_or_edit_page.VisibilityMap],
     contentType: string,
     languageCode: string,
+    licenseName: string,
   }
 
   export interface VisibilityMap {

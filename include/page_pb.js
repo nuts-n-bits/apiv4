@@ -210,7 +210,7 @@ proto.apiv4.page.Page_metadata.toObject = function(includeInstance, msg) {
     creationTimeIso: jspb.Message.getFieldWithDefault(msg, 6, ""),
     updateTimeIso: jspb.Message.getFieldWithDefault(msg, 7, ""),
     viewPermissionIdBis: jspb.Message.getFieldWithDefault(msg, 8, ""),
-    licensePageName: jspb.Message.getFieldWithDefault(msg, 9, ""),
+    licenseName: jspb.Message.getFieldWithDefault(msg, 9, ""),
     pageContentModel: jspb.Message.getFieldWithDefault(msg, 10, ""),
     eventIdBis: jspb.Message.getFieldWithDefault(msg, 11, ""),
     creatorDisplayName: jspb.Message.getFieldWithDefault(msg, 12, ""),
@@ -283,7 +283,7 @@ proto.apiv4.page.Page_metadata.deserializeBinaryFromReader = function(msg, reade
       break;
     case 9:
       var value = /** @type {string} */ (reader.readString());
-      msg.setLicensePageName(value);
+      msg.setLicenseName(value);
       break;
     case 10:
       var value = /** @type {string} */ (reader.readString());
@@ -387,7 +387,7 @@ proto.apiv4.page.Page_metadata.serializeBinaryToWriter = function(message, write
       f
     );
   }
-  f = message.getLicensePageName();
+  f = message.getLicenseName();
   if (f.length > 0) {
     writer.writeString(
       9,
@@ -545,16 +545,16 @@ proto.apiv4.page.Page_metadata.prototype.setViewPermissionIdBis = function(value
 
 
 /**
- * optional string license_page_name = 9;
+ * optional string license_name = 9;
  * @return {string}
  */
-proto.apiv4.page.Page_metadata.prototype.getLicensePageName = function() {
+proto.apiv4.page.Page_metadata.prototype.getLicenseName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
 };
 
 
 /** @param {string} value */
-proto.apiv4.page.Page_metadata.prototype.setLicensePageName = function(value) {
+proto.apiv4.page.Page_metadata.prototype.setLicenseName = function(value) {
   jspb.Message.setProto3StringField(this, 9, value);
 };
 
@@ -1161,7 +1161,8 @@ proto.apiv4.page.Request_create_or_edit_page.toObject = function(includeInstance
     revisionComment: jspb.Message.getFieldWithDefault(msg, 4, ""),
     visibility: jspb.Message.getFieldWithDefault(msg, 5, 0),
     contentType: jspb.Message.getFieldWithDefault(msg, 6, ""),
-    languageCode: jspb.Message.getFieldWithDefault(msg, 7, "")
+    languageCode: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    licenseName: jspb.Message.getFieldWithDefault(msg, 8, "")
   };
 
   if (includeInstance) {
@@ -1221,6 +1222,10 @@ proto.apiv4.page.Request_create_or_edit_page.deserializeBinaryFromReader = funct
     case 7:
       var value = /** @type {string} */ (reader.readString());
       msg.setLanguageCode(value);
+      break;
+    case 8:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLicenseName(value);
       break;
     default:
       reader.skipField();
@@ -1290,6 +1295,13 @@ proto.apiv4.page.Request_create_or_edit_page.serializeBinaryToWriter = function(
   if (f.length > 0) {
     writer.writeString(
       7,
+      f
+    );
+  }
+  f = message.getLicenseName();
+  if (f.length > 0) {
+    writer.writeString(
+      8,
       f
     );
   }
@@ -1392,6 +1404,21 @@ proto.apiv4.page.Request_create_or_edit_page.prototype.getLanguageCode = functio
 /** @param {string} value */
 proto.apiv4.page.Request_create_or_edit_page.prototype.setLanguageCode = function(value) {
   jspb.Message.setProto3StringField(this, 7, value);
+};
+
+
+/**
+ * optional string license_name = 8;
+ * @return {string}
+ */
+proto.apiv4.page.Request_create_or_edit_page.prototype.getLicenseName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+};
+
+
+/** @param {string} value */
+proto.apiv4.page.Request_create_or_edit_page.prototype.setLicenseName = function(value) {
+  jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
