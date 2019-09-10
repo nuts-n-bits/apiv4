@@ -78,7 +78,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.apiv4.user.Obtain_credential_by_password_naive_attempt = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, proto.apiv4.user.Obtain_credential_by_password_naive_attempt.oneofGroups_);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.apiv4.user.Obtain_credential_by_password_naive_attempt, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -883,32 +883,6 @@ proto.apiv4.user.User_private_model.prototype.clearBookmarksList = function() {
 
 
 
-/**
- * Oneof group definitions for this message. Each group defines the field
- * numbers belonging to that group. When of these fields' value is set, all
- * other fields in the group are cleared. During deserialization, if multiple
- * fields are encountered for a group, only the last value seen will be kept.
- * @private {!Array<!Array<number>>}
- * @const
- */
-proto.apiv4.user.Obtain_credential_by_password_naive_attempt.oneofGroups_ = [[1,2]];
-
-/**
- * @enum {number}
- */
-proto.apiv4.user.Obtain_credential_by_password_naive_attempt.UserIdentificationCase = {
-  USER_IDENTIFICATION_NOT_SET: 0,
-  USER_NAME_NORMALIZED: 1,
-  USER_EMAIL_PRIMARY: 2
-};
-
-/**
- * @return {proto.apiv4.user.Obtain_credential_by_password_naive_attempt.UserIdentificationCase}
- */
-proto.apiv4.user.Obtain_credential_by_password_naive_attempt.prototype.getUserIdentificationCase = function() {
-  return /** @type {proto.apiv4.user.Obtain_credential_by_password_naive_attempt.UserIdentificationCase} */(jspb.Message.computeOneofCase(this, proto.apiv4.user.Obtain_credential_by_password_naive_attempt.oneofGroups_[0]));
-};
-
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -1025,15 +999,15 @@ proto.apiv4.user.Obtain_credential_by_password_naive_attempt.prototype.serialize
  */
 proto.apiv4.user.Obtain_credential_by_password_naive_attempt.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = /** @type {string} */ (jspb.Message.getField(message, 1));
-  if (f != null) {
+  f = message.getUserNameNormalized();
+  if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = /** @type {string} */ (jspb.Message.getField(message, 2));
-  if (f != null) {
+  f = message.getUserEmailPrimary();
+  if (f.length > 0) {
     writer.writeString(
       2,
       f
@@ -1067,24 +1041,7 @@ proto.apiv4.user.Obtain_credential_by_password_naive_attempt.prototype.getUserNa
 
 /** @param {string} value */
 proto.apiv4.user.Obtain_credential_by_password_naive_attempt.prototype.setUserNameNormalized = function(value) {
-  jspb.Message.setOneofField(this, 1, proto.apiv4.user.Obtain_credential_by_password_naive_attempt.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the field making it undefined.
- */
-proto.apiv4.user.Obtain_credential_by_password_naive_attempt.prototype.clearUserNameNormalized = function() {
-  jspb.Message.setOneofField(this, 1, proto.apiv4.user.Obtain_credential_by_password_naive_attempt.oneofGroups_[0], undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.apiv4.user.Obtain_credential_by_password_naive_attempt.prototype.hasUserNameNormalized = function() {
-  return jspb.Message.getField(this, 1) != null;
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1099,24 +1056,7 @@ proto.apiv4.user.Obtain_credential_by_password_naive_attempt.prototype.getUserEm
 
 /** @param {string} value */
 proto.apiv4.user.Obtain_credential_by_password_naive_attempt.prototype.setUserEmailPrimary = function(value) {
-  jspb.Message.setOneofField(this, 2, proto.apiv4.user.Obtain_credential_by_password_naive_attempt.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the field making it undefined.
- */
-proto.apiv4.user.Obtain_credential_by_password_naive_attempt.prototype.clearUserEmailPrimary = function() {
-  jspb.Message.setOneofField(this, 2, proto.apiv4.user.Obtain_credential_by_password_naive_attempt.oneofGroups_[0], undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.apiv4.user.Obtain_credential_by_password_naive_attempt.prototype.hasUserEmailPrimary = function() {
-  return jspb.Message.getField(this, 2) != null;
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

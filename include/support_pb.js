@@ -611,7 +611,8 @@ proto.apiv4.support.Proof_of_work_required_to_continue.serializeBinaryToWriter =
  * @enum {number}
  */
 proto.apiv4.support.Proof_of_work_required_to_continue.Pow_type = {
-  CAPTCHA_1: 0
+  CAPTCHA_1: 0,
+  MEMORY_HARD_KEY_DERIVATION: 1
 };
 
 /**

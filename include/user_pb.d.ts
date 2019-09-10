@@ -95,13 +95,9 @@ export namespace User_private_model {
 }
 
 export class Obtain_credential_by_password_naive_attempt extends jspb.Message {
-  hasUserNameNormalized(): boolean;
-  clearUserNameNormalized(): void;
   getUserNameNormalized(): string;
   setUserNameNormalized(value: string): void;
 
-  hasUserEmailPrimary(): boolean;
-  clearUserEmailPrimary(): void;
   getUserEmailPrimary(): string;
   setUserEmailPrimary(value: string): void;
 
@@ -111,7 +107,6 @@ export class Obtain_credential_by_password_naive_attempt extends jspb.Message {
   getRequireExpiry(): Require_credential_expiryMap[keyof Require_credential_expiryMap];
   setRequireExpiry(value: Require_credential_expiryMap[keyof Require_credential_expiryMap]): void;
 
-  getUserIdentificationCase(): Obtain_credential_by_password_naive_attempt.UserIdentificationCase;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Obtain_credential_by_password_naive_attempt.AsObject;
   static toObject(includeInstance: boolean, msg: Obtain_credential_by_password_naive_attempt): Obtain_credential_by_password_naive_attempt.AsObject;
@@ -128,12 +123,6 @@ export namespace Obtain_credential_by_password_naive_attempt {
     userEmailPrimary: string,
     password: string,
     requireExpiry: Require_credential_expiryMap[keyof Require_credential_expiryMap],
-  }
-
-  export enum UserIdentificationCase {
-    USER_IDENTIFICATION_NOT_SET = 0,
-    USER_NAME_NORMALIZED = 1,
-    USER_EMAIL_PRIMARY = 2,
   }
 }
 

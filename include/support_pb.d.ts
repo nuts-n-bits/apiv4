@@ -90,6 +90,7 @@ export namespace Proof_of_work_required_to_continue {
 
   export interface Pow_typeMap {
     CAPTCHA_1: 0;
+    MEMORY_HARD_KEY_DERIVATION: 1;
   }
 
   export const Pow_type: Pow_typeMap;

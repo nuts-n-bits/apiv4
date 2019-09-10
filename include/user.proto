@@ -30,20 +30,16 @@ enum Require_credential_expiry {
 
 message Obtain_credential_by_password_naive_attempt {
 
-    oneof user_identification {
-        string user_name_normalized = 1;
-        string user_email_primary = 2;
-    }
+    string user_name_normalized = 1;
+    string user_email_primary = 2;
     string password = 3;
     Require_credential_expiry require_expiry = 4;
 }
 
 message Obtain_credential_by_password_pow_1 {
 
-    oneof user_identification {
-        string user_name_normalized = 1;
-        string user_email_primary = 2;
-    }
+    string user_name_normalized = 1;
+    string user_email_primary = 2;
     string password = 3;
     Require_credential_expiry require_expiry = 4;
     apiv4.support.Proof_of_work_produced pow_product = 5;

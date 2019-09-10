@@ -20,6 +20,7 @@ message Proof_of_work_required_to_continue {
     string pow_worklet_identifier = 1;
     enum Pow_type {
         captcha_1 = 0;
+        memory_hard_key_derivation = 1;
     }
     Pow_type pow_type = 2;
     string pow_challenge = 3;  // e.g. data uri that has a captcha image
