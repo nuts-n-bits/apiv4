@@ -101,8 +101,8 @@ export class Obtain_credential_by_password_naive_attempt extends jspb.Message {
   getUserEmailPrimary(): string;
   setUserEmailPrimary(value: string): void;
 
-  getPassword(): string;
-  setPassword(value: string): void;
+  getMhkd8192(): string;
+  setMhkd8192(value: string): void;
 
   getRequireExpiry(): Require_credential_expiryMap[keyof Require_credential_expiryMap];
   setRequireExpiry(value: Require_credential_expiryMap[keyof Require_credential_expiryMap]): void;
@@ -121,24 +121,20 @@ export namespace Obtain_credential_by_password_naive_attempt {
   export type AsObject = {
     userNameNormalized: string,
     userEmailPrimary: string,
-    password: string,
+    mhkd8192: string,
     requireExpiry: Require_credential_expiryMap[keyof Require_credential_expiryMap],
   }
 }
 
 export class Obtain_credential_by_password_pow_1 extends jspb.Message {
-  hasUserNameNormalized(): boolean;
-  clearUserNameNormalized(): void;
   getUserNameNormalized(): string;
   setUserNameNormalized(value: string): void;
 
-  hasUserEmailPrimary(): boolean;
-  clearUserEmailPrimary(): void;
   getUserEmailPrimary(): string;
   setUserEmailPrimary(value: string): void;
 
-  getPassword(): string;
-  setPassword(value: string): void;
+  getMhkd8192(): string;
+  setMhkd8192(value: string): void;
 
   getRequireExpiry(): Require_credential_expiryMap[keyof Require_credential_expiryMap];
   setRequireExpiry(value: Require_credential_expiryMap[keyof Require_credential_expiryMap]): void;
@@ -148,7 +144,6 @@ export class Obtain_credential_by_password_pow_1 extends jspb.Message {
   getPowProduct(): include_support_pb.Proof_of_work_produced | undefined;
   setPowProduct(value?: include_support_pb.Proof_of_work_produced): void;
 
-  getUserIdentificationCase(): Obtain_credential_by_password_pow_1.UserIdentificationCase;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Obtain_credential_by_password_pow_1.AsObject;
   static toObject(includeInstance: boolean, msg: Obtain_credential_by_password_pow_1): Obtain_credential_by_password_pow_1.AsObject;
@@ -163,15 +158,9 @@ export namespace Obtain_credential_by_password_pow_1 {
   export type AsObject = {
     userNameNormalized: string,
     userEmailPrimary: string,
-    password: string,
+    mhkd8192: string,
     requireExpiry: Require_credential_expiryMap[keyof Require_credential_expiryMap],
     powProduct?: include_support_pb.Proof_of_work_produced.AsObject,
-  }
-
-  export enum UserIdentificationCase {
-    USER_IDENTIFICATION_NOT_SET = 0,
-    USER_NAME_NORMALIZED = 1,
-    USER_EMAIL_PRIMARY = 2,
   }
 }
 

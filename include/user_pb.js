@@ -99,7 +99,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.apiv4.user.Obtain_credential_by_password_pow_1 = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, proto.apiv4.user.Obtain_credential_by_password_pow_1.oneofGroups_);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.apiv4.user.Obtain_credential_by_password_pow_1, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -916,7 +916,7 @@ proto.apiv4.user.Obtain_credential_by_password_naive_attempt.toObject = function
   var f, obj = {
     userNameNormalized: jspb.Message.getFieldWithDefault(msg, 1, ""),
     userEmailPrimary: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    password: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    mhkd8192: jspb.Message.getFieldWithDefault(msg, 3, ""),
     requireExpiry: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
@@ -964,7 +964,7 @@ proto.apiv4.user.Obtain_credential_by_password_naive_attempt.deserializeBinaryFr
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setPassword(value);
+      msg.setMhkd8192(value);
       break;
     case 4:
       var value = /** @type {!proto.apiv4.user.Require_credential_expiry} */ (reader.readEnum());
@@ -1013,7 +1013,7 @@ proto.apiv4.user.Obtain_credential_by_password_naive_attempt.serializeBinaryToWr
       f
     );
   }
-  f = message.getPassword();
+  f = message.getMhkd8192();
   if (f.length > 0) {
     writer.writeString(
       3,
@@ -1061,16 +1061,16 @@ proto.apiv4.user.Obtain_credential_by_password_naive_attempt.prototype.setUserEm
 
 
 /**
- * optional string password = 3;
+ * optional string mhkd8192 = 3;
  * @return {string}
  */
-proto.apiv4.user.Obtain_credential_by_password_naive_attempt.prototype.getPassword = function() {
+proto.apiv4.user.Obtain_credential_by_password_naive_attempt.prototype.getMhkd8192 = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /** @param {string} value */
-proto.apiv4.user.Obtain_credential_by_password_naive_attempt.prototype.setPassword = function(value) {
+proto.apiv4.user.Obtain_credential_by_password_naive_attempt.prototype.setMhkd8192 = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
 };
 
@@ -1090,32 +1090,6 @@ proto.apiv4.user.Obtain_credential_by_password_naive_attempt.prototype.setRequir
 };
 
 
-
-/**
- * Oneof group definitions for this message. Each group defines the field
- * numbers belonging to that group. When of these fields' value is set, all
- * other fields in the group are cleared. During deserialization, if multiple
- * fields are encountered for a group, only the last value seen will be kept.
- * @private {!Array<!Array<number>>}
- * @const
- */
-proto.apiv4.user.Obtain_credential_by_password_pow_1.oneofGroups_ = [[1,2]];
-
-/**
- * @enum {number}
- */
-proto.apiv4.user.Obtain_credential_by_password_pow_1.UserIdentificationCase = {
-  USER_IDENTIFICATION_NOT_SET: 0,
-  USER_NAME_NORMALIZED: 1,
-  USER_EMAIL_PRIMARY: 2
-};
-
-/**
- * @return {proto.apiv4.user.Obtain_credential_by_password_pow_1.UserIdentificationCase}
- */
-proto.apiv4.user.Obtain_credential_by_password_pow_1.prototype.getUserIdentificationCase = function() {
-  return /** @type {proto.apiv4.user.Obtain_credential_by_password_pow_1.UserIdentificationCase} */(jspb.Message.computeOneofCase(this, proto.apiv4.user.Obtain_credential_by_password_pow_1.oneofGroups_[0]));
-};
 
 
 
@@ -1150,7 +1124,7 @@ proto.apiv4.user.Obtain_credential_by_password_pow_1.toObject = function(include
   var f, obj = {
     userNameNormalized: jspb.Message.getFieldWithDefault(msg, 1, ""),
     userEmailPrimary: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    password: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    mhkd8192: jspb.Message.getFieldWithDefault(msg, 3, ""),
     requireExpiry: jspb.Message.getFieldWithDefault(msg, 4, 0),
     powProduct: (f = msg.getPowProduct()) && include_support_pb.Proof_of_work_produced.toObject(includeInstance, f)
   };
@@ -1199,7 +1173,7 @@ proto.apiv4.user.Obtain_credential_by_password_pow_1.deserializeBinaryFromReader
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setPassword(value);
+      msg.setMhkd8192(value);
       break;
     case 4:
       var value = /** @type {!proto.apiv4.user.Require_credential_expiry} */ (reader.readEnum());
@@ -1239,21 +1213,21 @@ proto.apiv4.user.Obtain_credential_by_password_pow_1.prototype.serializeBinary =
  */
 proto.apiv4.user.Obtain_credential_by_password_pow_1.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = /** @type {string} */ (jspb.Message.getField(message, 1));
-  if (f != null) {
+  f = message.getUserNameNormalized();
+  if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = /** @type {string} */ (jspb.Message.getField(message, 2));
-  if (f != null) {
+  f = message.getUserEmailPrimary();
+  if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = message.getPassword();
+  f = message.getMhkd8192();
   if (f.length > 0) {
     writer.writeString(
       3,
@@ -1289,24 +1263,7 @@ proto.apiv4.user.Obtain_credential_by_password_pow_1.prototype.getUserNameNormal
 
 /** @param {string} value */
 proto.apiv4.user.Obtain_credential_by_password_pow_1.prototype.setUserNameNormalized = function(value) {
-  jspb.Message.setOneofField(this, 1, proto.apiv4.user.Obtain_credential_by_password_pow_1.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the field making it undefined.
- */
-proto.apiv4.user.Obtain_credential_by_password_pow_1.prototype.clearUserNameNormalized = function() {
-  jspb.Message.setOneofField(this, 1, proto.apiv4.user.Obtain_credential_by_password_pow_1.oneofGroups_[0], undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.apiv4.user.Obtain_credential_by_password_pow_1.prototype.hasUserNameNormalized = function() {
-  return jspb.Message.getField(this, 1) != null;
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1321,38 +1278,21 @@ proto.apiv4.user.Obtain_credential_by_password_pow_1.prototype.getUserEmailPrima
 
 /** @param {string} value */
 proto.apiv4.user.Obtain_credential_by_password_pow_1.prototype.setUserEmailPrimary = function(value) {
-  jspb.Message.setOneofField(this, 2, proto.apiv4.user.Obtain_credential_by_password_pow_1.oneofGroups_[0], value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
- * Clears the field making it undefined.
- */
-proto.apiv4.user.Obtain_credential_by_password_pow_1.prototype.clearUserEmailPrimary = function() {
-  jspb.Message.setOneofField(this, 2, proto.apiv4.user.Obtain_credential_by_password_pow_1.oneofGroups_[0], undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.apiv4.user.Obtain_credential_by_password_pow_1.prototype.hasUserEmailPrimary = function() {
-  return jspb.Message.getField(this, 2) != null;
-};
-
-
-/**
- * optional string password = 3;
+ * optional string mhkd8192 = 3;
  * @return {string}
  */
-proto.apiv4.user.Obtain_credential_by_password_pow_1.prototype.getPassword = function() {
+proto.apiv4.user.Obtain_credential_by_password_pow_1.prototype.getMhkd8192 = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /** @param {string} value */
-proto.apiv4.user.Obtain_credential_by_password_pow_1.prototype.setPassword = function(value) {
+proto.apiv4.user.Obtain_credential_by_password_pow_1.prototype.setMhkd8192 = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
 };
 
