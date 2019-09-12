@@ -29,6 +29,7 @@ message Api_request_wrapper {
         apiv4.user.Obtain_credential_2fa_hmac_totp_code sign_in_hmac_totp = 33;
         apiv4.user.Obtain_credential_mail_otp_step_0_response sign_in_mail_otp_0 = 34;
         apiv4.user.Obtain_credential_mail_otp_step_1_response sign_in_mail_otp_1 = 35;
+        apiv4.user.Request_create_user_naive_attempt create_user_naive = 36;
     }
 }
 
@@ -49,6 +50,7 @@ message Api_response_wrapper {
         procedure_not_supported = 5;  // similar to NotImplementedError
         message_version_too_old = 6;
         message_version_too_new = 7;
+        pow_required_to_continue = 8;
     }
 
     Broad_error_type error = 3;
@@ -59,10 +61,10 @@ message Api_response_wrapper {
         apiv4.page.Page_metadata page_metadata = 12;
         apiv4.feed.Feed_with_rendering_elements feed_rendering_elements = 21;
         apiv4.feed.Feed_metadata feed_metadata = 22;
-        apiv4.support.Proof_of_work_required_to_continue pow_required = 31;
         apiv4.user.Reply_2fa_hmac_totp_required_to_obtain_credential sign_in_hmac_totp_required = 41;
         apiv4.user.Reply_2fa_mail_otp_step_0_verify_email_addr sign_in_mail_totp_step_0 = 42;
         apiv4.user.Reply_2fa_mail_otp_step_1_mail_sent sign_in_mail_totp_step_1 = 43;
         apiv4.user.Response_credential_granted credential_granted = 44;
+        apiv4.user.Response_user_created user_created = 45;
     }
 }

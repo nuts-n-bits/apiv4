@@ -92,3 +92,16 @@ message Response_credential_granted {
     string expiry_iso = 2;
 }
 
+message Request_create_user_naive_attempt {
+
+    string identifying_name = 1;
+    string display_name = 2;
+    string email_primary = 3;
+    string mhkd8192 = 4;
+}
+
+message Response_user_created {
+    
+    string user_id_bis = 1;
+    apiv4.support.Credential credential = 2;
+}

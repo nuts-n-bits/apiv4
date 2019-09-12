@@ -354,6 +354,64 @@ export namespace Response_credential_granted {
   }
 }
 
+export class Request_create_user_naive_attempt extends jspb.Message {
+  getIdentifyingName(): string;
+  setIdentifyingName(value: string): void;
+
+  getDisplayName(): string;
+  setDisplayName(value: string): void;
+
+  getEmailPrimary(): string;
+  setEmailPrimary(value: string): void;
+
+  getMhkd8192(): string;
+  setMhkd8192(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Request_create_user_naive_attempt.AsObject;
+  static toObject(includeInstance: boolean, msg: Request_create_user_naive_attempt): Request_create_user_naive_attempt.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Request_create_user_naive_attempt, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Request_create_user_naive_attempt;
+  static deserializeBinaryFromReader(message: Request_create_user_naive_attempt, reader: jspb.BinaryReader): Request_create_user_naive_attempt;
+}
+
+export namespace Request_create_user_naive_attempt {
+  export type AsObject = {
+    identifyingName: string,
+    displayName: string,
+    emailPrimary: string,
+    mhkd8192: string,
+  }
+}
+
+export class Response_user_created extends jspb.Message {
+  getUserIdBis(): string;
+  setUserIdBis(value: string): void;
+
+  hasCredential(): boolean;
+  clearCredential(): void;
+  getCredential(): include_support_pb.Credential | undefined;
+  setCredential(value?: include_support_pb.Credential): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Response_user_created.AsObject;
+  static toObject(includeInstance: boolean, msg: Response_user_created): Response_user_created.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Response_user_created, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Response_user_created;
+  static deserializeBinaryFromReader(message: Response_user_created, reader: jspb.BinaryReader): Response_user_created;
+}
+
+export namespace Response_user_created {
+  export type AsObject = {
+    userIdBis: string,
+    credential?: include_support_pb.Credential.AsObject,
+  }
+}
+
 export interface Require_credential_expiryMap {
   EXPIRY_TYPE_ONE_DAY: 0;
   EXPIRY_TYPE_90_DAYS: 1;
