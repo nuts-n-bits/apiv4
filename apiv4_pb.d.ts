@@ -71,6 +71,11 @@ export class Api_request_wrapper extends jspb.Message {
   getSignInMailOtp1(): include_user_pb.Obtain_credential_mail_otp_step_1_response | undefined;
   setSignInMailOtp1(value?: include_user_pb.Obtain_credential_mail_otp_step_1_response): void;
 
+  hasCreateUserNaive(): boolean;
+  clearCreateUserNaive(): void;
+  getCreateUserNaive(): include_user_pb.Request_create_user_naive_attempt | undefined;
+  setCreateUserNaive(value?: include_user_pb.Request_create_user_naive_attempt): void;
+
   getActualMessageCase(): Api_request_wrapper.ActualMessageCase;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Api_request_wrapper.AsObject;
@@ -97,6 +102,7 @@ export namespace Api_request_wrapper {
     signInHmacTotp?: include_user_pb.Obtain_credential_2fa_hmac_totp_code.AsObject,
     signInMailOtp0?: include_user_pb.Obtain_credential_mail_otp_step_0_response.AsObject,
     signInMailOtp1?: include_user_pb.Obtain_credential_mail_otp_step_1_response.AsObject,
+    createUserNaive?: include_user_pb.Request_create_user_naive_attempt.AsObject,
   }
 
   export enum ActualMessageCase {
@@ -111,6 +117,7 @@ export namespace Api_request_wrapper {
     SIGN_IN_HMAC_TOTP = 33,
     SIGN_IN_MAIL_OTP_0 = 34,
     SIGN_IN_MAIL_OTP_1 = 35,
+    CREATE_USER_NAIVE = 36,
   }
 }
 
@@ -147,11 +154,6 @@ export class Api_response_wrapper extends jspb.Message {
   getFeedMetadata(): include_feed_pb.Feed_metadata | undefined;
   setFeedMetadata(value?: include_feed_pb.Feed_metadata): void;
 
-  hasPowRequired(): boolean;
-  clearPowRequired(): void;
-  getPowRequired(): include_support_pb.Proof_of_work_required_to_continue | undefined;
-  setPowRequired(value?: include_support_pb.Proof_of_work_required_to_continue): void;
-
   hasSignInHmacTotpRequired(): boolean;
   clearSignInHmacTotpRequired(): void;
   getSignInHmacTotpRequired(): include_user_pb.Reply_2fa_hmac_totp_required_to_obtain_credential | undefined;
@@ -171,6 +173,11 @@ export class Api_response_wrapper extends jspb.Message {
   clearCredentialGranted(): void;
   getCredentialGranted(): include_user_pb.Response_credential_granted | undefined;
   setCredentialGranted(value?: include_user_pb.Response_credential_granted): void;
+
+  hasUserCreated(): boolean;
+  clearUserCreated(): void;
+  getUserCreated(): include_user_pb.Response_user_created | undefined;
+  setUserCreated(value?: include_user_pb.Response_user_created): void;
 
   getActualMessageCase(): Api_response_wrapper.ActualMessageCase;
   serializeBinary(): Uint8Array;
@@ -193,11 +200,11 @@ export namespace Api_response_wrapper {
     pageMetadata?: include_page_pb.Page_metadata.AsObject,
     feedRenderingElements?: include_feed_pb.Feed_with_rendering_elements.AsObject,
     feedMetadata?: include_feed_pb.Feed_metadata.AsObject,
-    powRequired?: include_support_pb.Proof_of_work_required_to_continue.AsObject,
     signInHmacTotpRequired?: include_user_pb.Reply_2fa_hmac_totp_required_to_obtain_credential.AsObject,
     signInMailTotpStep0?: include_user_pb.Reply_2fa_mail_otp_step_0_verify_email_addr.AsObject,
     signInMailTotpStep1?: include_user_pb.Reply_2fa_mail_otp_step_1_mail_sent.AsObject,
     credentialGranted?: include_user_pb.Response_credential_granted.AsObject,
+    userCreated?: include_user_pb.Response_user_created.AsObject,
   }
 
   export interface Broad_error_typeMap {
@@ -209,6 +216,7 @@ export namespace Api_response_wrapper {
     PROCEDURE_NOT_SUPPORTED: 5;
     MESSAGE_VERSION_TOO_OLD: 6;
     MESSAGE_VERSION_TOO_NEW: 7;
+    POW_REQUIRED_TO_CONTINUE: 8;
   }
 
   export const Broad_error_type: Broad_error_typeMap;
@@ -219,11 +227,11 @@ export namespace Api_response_wrapper {
     PAGE_METADATA = 12,
     FEED_RENDERING_ELEMENTS = 21,
     FEED_METADATA = 22,
-    POW_REQUIRED = 31,
     SIGN_IN_HMAC_TOTP_REQUIRED = 41,
     SIGN_IN_MAIL_TOTP_STEP_0 = 42,
     SIGN_IN_MAIL_TOTP_STEP_1 = 43,
     CREDENTIAL_GRANTED = 44,
+    USER_CREATED = 45,
   }
 }
 

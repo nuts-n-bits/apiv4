@@ -73,7 +73,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.Api_request_wrapper.oneofGroups_ = [[11,12,13,21,22,31,32,33,34,35]];
+proto.Api_request_wrapper.oneofGroups_ = [[11,12,13,21,22,31,32,33,34,35,36]];
 
 /**
  * @enum {number}
@@ -89,7 +89,8 @@ proto.Api_request_wrapper.ActualMessageCase = {
   SIGN_IN_PWD_POW_1: 32,
   SIGN_IN_HMAC_TOTP: 33,
   SIGN_IN_MAIL_OTP_0: 34,
-  SIGN_IN_MAIL_OTP_1: 35
+  SIGN_IN_MAIL_OTP_1: 35,
+  CREATE_USER_NAIVE: 36
 };
 
 /**
@@ -142,7 +143,8 @@ proto.Api_request_wrapper.toObject = function(includeInstance, msg) {
     signInPwdPow1: (f = msg.getSignInPwdPow1()) && include_user_pb.Obtain_credential_by_password_pow_1.toObject(includeInstance, f),
     signInHmacTotp: (f = msg.getSignInHmacTotp()) && include_user_pb.Obtain_credential_2fa_hmac_totp_code.toObject(includeInstance, f),
     signInMailOtp0: (f = msg.getSignInMailOtp0()) && include_user_pb.Obtain_credential_mail_otp_step_0_response.toObject(includeInstance, f),
-    signInMailOtp1: (f = msg.getSignInMailOtp1()) && include_user_pb.Obtain_credential_mail_otp_step_1_response.toObject(includeInstance, f)
+    signInMailOtp1: (f = msg.getSignInMailOtp1()) && include_user_pb.Obtain_credential_mail_otp_step_1_response.toObject(includeInstance, f),
+    createUserNaive: (f = msg.getCreateUserNaive()) && include_user_pb.Request_create_user_naive_attempt.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -242,6 +244,11 @@ proto.Api_request_wrapper.deserializeBinaryFromReader = function(msg, reader) {
       var value = new include_user_pb.Obtain_credential_mail_otp_step_1_response;
       reader.readMessage(value,include_user_pb.Obtain_credential_mail_otp_step_1_response.deserializeBinaryFromReader);
       msg.setSignInMailOtp1(value);
+      break;
+    case 36:
+      var value = new include_user_pb.Request_create_user_naive_attempt;
+      reader.readMessage(value,include_user_pb.Request_create_user_naive_attempt.deserializeBinaryFromReader);
+      msg.setCreateUserNaive(value);
       break;
     default:
       reader.skipField();
@@ -373,6 +380,14 @@ proto.Api_request_wrapper.serializeBinaryToWriter = function(message, writer) {
       35,
       f,
       include_user_pb.Obtain_credential_mail_otp_step_1_response.serializeBinaryToWriter
+    );
+  }
+  f = message.getCreateUserNaive();
+  if (f != null) {
+    writer.writeMessage(
+      36,
+      f,
+      include_user_pb.Request_create_user_naive_attempt.serializeBinaryToWriter
     );
   }
 };
@@ -789,6 +804,39 @@ proto.Api_request_wrapper.prototype.hasSignInMailOtp1 = function() {
 };
 
 
+/**
+ * optional apiv4.user.Request_create_user_naive_attempt create_user_naive = 36;
+ * @return {?proto.apiv4.user.Request_create_user_naive_attempt}
+ */
+proto.Api_request_wrapper.prototype.getCreateUserNaive = function() {
+  return /** @type{?proto.apiv4.user.Request_create_user_naive_attempt} */ (
+    jspb.Message.getWrapperField(this, include_user_pb.Request_create_user_naive_attempt, 36));
+};
+
+
+/** @param {?proto.apiv4.user.Request_create_user_naive_attempt|undefined} value */
+proto.Api_request_wrapper.prototype.setCreateUserNaive = function(value) {
+  jspb.Message.setOneofWrapperField(this, 36, proto.Api_request_wrapper.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ */
+proto.Api_request_wrapper.prototype.clearCreateUserNaive = function() {
+  this.setCreateUserNaive(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.Api_request_wrapper.prototype.hasCreateUserNaive = function() {
+  return jspb.Message.getField(this, 36) != null;
+};
+
+
 
 /**
  * Oneof group definitions for this message. Each group defines the field
@@ -798,7 +846,7 @@ proto.Api_request_wrapper.prototype.hasSignInMailOtp1 = function() {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.Api_response_wrapper.oneofGroups_ = [[11,12,21,22,31,41,42,43,44]];
+proto.Api_response_wrapper.oneofGroups_ = [[11,12,21,22,41,42,43,44,45]];
 
 /**
  * @enum {number}
@@ -809,11 +857,11 @@ proto.Api_response_wrapper.ActualMessageCase = {
   PAGE_METADATA: 12,
   FEED_RENDERING_ELEMENTS: 21,
   FEED_METADATA: 22,
-  POW_REQUIRED: 31,
   SIGN_IN_HMAC_TOTP_REQUIRED: 41,
   SIGN_IN_MAIL_TOTP_STEP_0: 42,
   SIGN_IN_MAIL_TOTP_STEP_1: 43,
-  CREDENTIAL_GRANTED: 44
+  CREDENTIAL_GRANTED: 44,
+  USER_CREATED: 45
 };
 
 /**
@@ -862,11 +910,11 @@ proto.Api_response_wrapper.toObject = function(includeInstance, msg) {
     pageMetadata: (f = msg.getPageMetadata()) && include_page_pb.Page_metadata.toObject(includeInstance, f),
     feedRenderingElements: (f = msg.getFeedRenderingElements()) && include_feed_pb.Feed_with_rendering_elements.toObject(includeInstance, f),
     feedMetadata: (f = msg.getFeedMetadata()) && include_feed_pb.Feed_metadata.toObject(includeInstance, f),
-    powRequired: (f = msg.getPowRequired()) && include_support_pb.Proof_of_work_required_to_continue.toObject(includeInstance, f),
     signInHmacTotpRequired: (f = msg.getSignInHmacTotpRequired()) && include_user_pb.Reply_2fa_hmac_totp_required_to_obtain_credential.toObject(includeInstance, f),
     signInMailTotpStep0: (f = msg.getSignInMailTotpStep0()) && include_user_pb.Reply_2fa_mail_otp_step_0_verify_email_addr.toObject(includeInstance, f),
     signInMailTotpStep1: (f = msg.getSignInMailTotpStep1()) && include_user_pb.Reply_2fa_mail_otp_step_1_mail_sent.toObject(includeInstance, f),
-    credentialGranted: (f = msg.getCredentialGranted()) && include_user_pb.Response_credential_granted.toObject(includeInstance, f)
+    credentialGranted: (f = msg.getCredentialGranted()) && include_user_pb.Response_credential_granted.toObject(includeInstance, f),
+    userCreated: (f = msg.getUserCreated()) && include_user_pb.Response_user_created.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -939,11 +987,6 @@ proto.Api_response_wrapper.deserializeBinaryFromReader = function(msg, reader) {
       reader.readMessage(value,include_feed_pb.Feed_metadata.deserializeBinaryFromReader);
       msg.setFeedMetadata(value);
       break;
-    case 31:
-      var value = new include_support_pb.Proof_of_work_required_to_continue;
-      reader.readMessage(value,include_support_pb.Proof_of_work_required_to_continue.deserializeBinaryFromReader);
-      msg.setPowRequired(value);
-      break;
     case 41:
       var value = new include_user_pb.Reply_2fa_hmac_totp_required_to_obtain_credential;
       reader.readMessage(value,include_user_pb.Reply_2fa_hmac_totp_required_to_obtain_credential.deserializeBinaryFromReader);
@@ -963,6 +1006,11 @@ proto.Api_response_wrapper.deserializeBinaryFromReader = function(msg, reader) {
       var value = new include_user_pb.Response_credential_granted;
       reader.readMessage(value,include_user_pb.Response_credential_granted.deserializeBinaryFromReader);
       msg.setCredentialGranted(value);
+      break;
+    case 45:
+      var value = new include_user_pb.Response_user_created;
+      reader.readMessage(value,include_user_pb.Response_user_created.deserializeBinaryFromReader);
+      msg.setUserCreated(value);
       break;
     default:
       reader.skipField();
@@ -1053,14 +1101,6 @@ proto.Api_response_wrapper.serializeBinaryToWriter = function(message, writer) {
       include_feed_pb.Feed_metadata.serializeBinaryToWriter
     );
   }
-  f = message.getPowRequired();
-  if (f != null) {
-    writer.writeMessage(
-      31,
-      f,
-      include_support_pb.Proof_of_work_required_to_continue.serializeBinaryToWriter
-    );
-  }
   f = message.getSignInHmacTotpRequired();
   if (f != null) {
     writer.writeMessage(
@@ -1093,6 +1133,14 @@ proto.Api_response_wrapper.serializeBinaryToWriter = function(message, writer) {
       include_user_pb.Response_credential_granted.serializeBinaryToWriter
     );
   }
+  f = message.getUserCreated();
+  if (f != null) {
+    writer.writeMessage(
+      45,
+      f,
+      include_user_pb.Response_user_created.serializeBinaryToWriter
+    );
+  }
 };
 
 
@@ -1107,7 +1155,8 @@ proto.Api_response_wrapper.Broad_error_type = {
   MISSION_SPECIFIC: 4,
   PROCEDURE_NOT_SUPPORTED: 5,
   MESSAGE_VERSION_TOO_OLD: 6,
-  MESSAGE_VERSION_TOO_NEW: 7
+  MESSAGE_VERSION_TOO_NEW: 7,
+  POW_REQUIRED_TO_CONTINUE: 8
 };
 
 /**
@@ -1303,39 +1352,6 @@ proto.Api_response_wrapper.prototype.hasFeedMetadata = function() {
 
 
 /**
- * optional apiv4.support.Proof_of_work_required_to_continue pow_required = 31;
- * @return {?proto.apiv4.support.Proof_of_work_required_to_continue}
- */
-proto.Api_response_wrapper.prototype.getPowRequired = function() {
-  return /** @type{?proto.apiv4.support.Proof_of_work_required_to_continue} */ (
-    jspb.Message.getWrapperField(this, include_support_pb.Proof_of_work_required_to_continue, 31));
-};
-
-
-/** @param {?proto.apiv4.support.Proof_of_work_required_to_continue|undefined} value */
-proto.Api_response_wrapper.prototype.setPowRequired = function(value) {
-  jspb.Message.setOneofWrapperField(this, 31, proto.Api_response_wrapper.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- */
-proto.Api_response_wrapper.prototype.clearPowRequired = function() {
-  this.setPowRequired(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.Api_response_wrapper.prototype.hasPowRequired = function() {
-  return jspb.Message.getField(this, 31) != null;
-};
-
-
-/**
  * optional apiv4.user.Reply_2fa_hmac_totp_required_to_obtain_credential sign_in_hmac_totp_required = 41;
  * @return {?proto.apiv4.user.Reply_2fa_hmac_totp_required_to_obtain_credential}
  */
@@ -1464,6 +1480,39 @@ proto.Api_response_wrapper.prototype.clearCredentialGranted = function() {
  */
 proto.Api_response_wrapper.prototype.hasCredentialGranted = function() {
   return jspb.Message.getField(this, 44) != null;
+};
+
+
+/**
+ * optional apiv4.user.Response_user_created user_created = 45;
+ * @return {?proto.apiv4.user.Response_user_created}
+ */
+proto.Api_response_wrapper.prototype.getUserCreated = function() {
+  return /** @type{?proto.apiv4.user.Response_user_created} */ (
+    jspb.Message.getWrapperField(this, include_user_pb.Response_user_created, 45));
+};
+
+
+/** @param {?proto.apiv4.user.Response_user_created|undefined} value */
+proto.Api_response_wrapper.prototype.setUserCreated = function(value) {
+  jspb.Message.setOneofWrapperField(this, 45, proto.Api_response_wrapper.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ */
+proto.Api_response_wrapper.prototype.clearUserCreated = function() {
+  this.setUserCreated(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.Api_response_wrapper.prototype.hasUserCreated = function() {
+  return jspb.Message.getField(this, 45) != null;
 };
 
 
