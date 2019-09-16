@@ -19,5 +19,8 @@
   "dependencies": {
     "ts-protoc-gen": "^0.10.0",
     "@types/google-protobuf": "^3.7.1"
+  },
+  "__processed_by_ivy_ngcc__": {
+    "main": "8.2.6"
   }
 }
