@@ -51,11 +51,6 @@ export class Api_request_wrapper extends jspb.Message {
   getSignInPwdNaive(): include_user_pb.Obtain_credential_by_password_naive_attempt | undefined;
   setSignInPwdNaive(value?: include_user_pb.Obtain_credential_by_password_naive_attempt): void;
 
-  hasSignInPwdPow1(): boolean;
-  clearSignInPwdPow1(): void;
-  getSignInPwdPow1(): include_user_pb.Obtain_credential_by_password_pow_1 | undefined;
-  setSignInPwdPow1(value?: include_user_pb.Obtain_credential_by_password_pow_1): void;
-
   hasSignInHmacTotp(): boolean;
   clearSignInHmacTotp(): void;
   getSignInHmacTotp(): include_user_pb.Obtain_credential_2fa_hmac_totp_code | undefined;
@@ -98,7 +93,6 @@ export namespace Api_request_wrapper {
     feedRenderingElements?: include_feed_pb.Request_feed_rendering_elements_by_name.AsObject,
     feedMetadata?: include_feed_pb.Request_feed_metadata_by_name.AsObject,
     signInPwdNaive?: include_user_pb.Obtain_credential_by_password_naive_attempt.AsObject,
-    signInPwdPow1?: include_user_pb.Obtain_credential_by_password_pow_1.AsObject,
     signInHmacTotp?: include_user_pb.Obtain_credential_2fa_hmac_totp_code.AsObject,
     signInMailOtp0?: include_user_pb.Obtain_credential_mail_otp_step_0_response.AsObject,
     signInMailOtp1?: include_user_pb.Obtain_credential_mail_otp_step_1_response.AsObject,
@@ -113,7 +107,6 @@ export namespace Api_request_wrapper {
     FEED_RENDERING_ELEMENTS = 21,
     FEED_METADATA = 22,
     SIGN_IN_PWD_NAIVE = 31,
-    SIGN_IN_PWD_POW_1 = 32,
     SIGN_IN_HMAC_TOTP = 33,
     SIGN_IN_MAIL_OTP_0 = 34,
     SIGN_IN_MAIL_OTP_1 = 35,

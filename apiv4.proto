@@ -17,6 +17,8 @@ message Api_request_wrapper {
     apiv4.support.Credential credential = 2;
     apiv4.support.Proof_of_work_produced pow_reply = 3;
 
+    reserved 32;
+
     oneof actual_message {
 
         apiv4.page.Request_page_rendering_elements_by_name page_rendering_elements = 11;
@@ -25,7 +27,6 @@ message Api_request_wrapper {
         apiv4.feed.Request_feed_rendering_elements_by_name feed_rendering_elements = 21;
         apiv4.feed.Request_feed_metadata_by_name feed_metadata = 22;
         apiv4.user.Obtain_credential_by_password_naive_attempt sign_in_pwd_naive = 31;
-        apiv4.user.Obtain_credential_by_password_pow_1 sign_in_pwd_pow_1 = 32;
         apiv4.user.Obtain_credential_2fa_hmac_totp_code sign_in_hmac_totp = 33;
         apiv4.user.Obtain_credential_mail_otp_step_0_response sign_in_mail_otp_0 = 34;
         apiv4.user.Obtain_credential_mail_otp_step_1_response sign_in_mail_otp_1 = 35;

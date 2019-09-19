@@ -28,21 +28,15 @@ enum Require_credential_expiry {
     expiry_type_90_days = 1;
 }
 
+// login
+
 message Obtain_credential_by_password_naive_attempt {
 
     string user_name_normalized = 1;
     string user_email_primary = 2;
     string mhkd8192 = 3;
     Require_credential_expiry require_expiry = 4;
-}
-
-message Obtain_credential_by_password_pow_1 {
-
-    string user_name_normalized = 1;
-    string user_email_primary = 2;
-    string mhkd8192 = 3;
-    Require_credential_expiry require_expiry = 4;
-    apiv4.support.Proof_of_work_produced pow_product = 5;
+    string hmac_signed_proof_no_totp_needed_on_this_device = 5;  // optional
 }
 
 message Reply_2fa_hmac_totp_required_to_obtain_credential {

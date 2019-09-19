@@ -107,6 +107,9 @@ export class Obtain_credential_by_password_naive_attempt extends jspb.Message {
   getRequireExpiry(): Require_credential_expiryMap[keyof Require_credential_expiryMap];
   setRequireExpiry(value: Require_credential_expiryMap[keyof Require_credential_expiryMap]): void;
 
+  getHmacSignedProofNoTotpNeededOnThisDevice(): string;
+  setHmacSignedProofNoTotpNeededOnThisDevice(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Obtain_credential_by_password_naive_attempt.AsObject;
   static toObject(includeInstance: boolean, msg: Obtain_credential_by_password_naive_attempt): Obtain_credential_by_password_naive_attempt.AsObject;
@@ -123,44 +126,7 @@ export namespace Obtain_credential_by_password_naive_attempt {
     userEmailPrimary: string,
     mhkd8192: string,
     requireExpiry: Require_credential_expiryMap[keyof Require_credential_expiryMap],
-  }
-}
-
-export class Obtain_credential_by_password_pow_1 extends jspb.Message {
-  getUserNameNormalized(): string;
-  setUserNameNormalized(value: string): void;
-
-  getUserEmailPrimary(): string;
-  setUserEmailPrimary(value: string): void;
-
-  getMhkd8192(): string;
-  setMhkd8192(value: string): void;
-
-  getRequireExpiry(): Require_credential_expiryMap[keyof Require_credential_expiryMap];
-  setRequireExpiry(value: Require_credential_expiryMap[keyof Require_credential_expiryMap]): void;
-
-  hasPowProduct(): boolean;
-  clearPowProduct(): void;
-  getPowProduct(): include_support_pb.Proof_of_work_produced | undefined;
-  setPowProduct(value?: include_support_pb.Proof_of_work_produced): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Obtain_credential_by_password_pow_1.AsObject;
-  static toObject(includeInstance: boolean, msg: Obtain_credential_by_password_pow_1): Obtain_credential_by_password_pow_1.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Obtain_credential_by_password_pow_1, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Obtain_credential_by_password_pow_1;
-  static deserializeBinaryFromReader(message: Obtain_credential_by_password_pow_1, reader: jspb.BinaryReader): Obtain_credential_by_password_pow_1;
-}
-
-export namespace Obtain_credential_by_password_pow_1 {
-  export type AsObject = {
-    userNameNormalized: string,
-    userEmailPrimary: string,
-    mhkd8192: string,
-    requireExpiry: Require_credential_expiryMap[keyof Require_credential_expiryMap],
-    powProduct?: include_support_pb.Proof_of_work_produced.AsObject,
+    hmacSignedProofNoTotpNeededOnThisDevice: string,
   }
 }
 

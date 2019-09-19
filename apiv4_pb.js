@@ -73,7 +73,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.Api_request_wrapper.oneofGroups_ = [[11,12,13,21,22,31,32,33,34,35,36]];
+proto.Api_request_wrapper.oneofGroups_ = [[11,12,13,21,22,31,33,34,35,36]];
 
 /**
  * @enum {number}
@@ -86,7 +86,6 @@ proto.Api_request_wrapper.ActualMessageCase = {
   FEED_RENDERING_ELEMENTS: 21,
   FEED_METADATA: 22,
   SIGN_IN_PWD_NAIVE: 31,
-  SIGN_IN_PWD_POW_1: 32,
   SIGN_IN_HMAC_TOTP: 33,
   SIGN_IN_MAIL_OTP_0: 34,
   SIGN_IN_MAIL_OTP_1: 35,
@@ -140,7 +139,6 @@ proto.Api_request_wrapper.toObject = function(includeInstance, msg) {
     feedRenderingElements: (f = msg.getFeedRenderingElements()) && include_feed_pb.Request_feed_rendering_elements_by_name.toObject(includeInstance, f),
     feedMetadata: (f = msg.getFeedMetadata()) && include_feed_pb.Request_feed_metadata_by_name.toObject(includeInstance, f),
     signInPwdNaive: (f = msg.getSignInPwdNaive()) && include_user_pb.Obtain_credential_by_password_naive_attempt.toObject(includeInstance, f),
-    signInPwdPow1: (f = msg.getSignInPwdPow1()) && include_user_pb.Obtain_credential_by_password_pow_1.toObject(includeInstance, f),
     signInHmacTotp: (f = msg.getSignInHmacTotp()) && include_user_pb.Obtain_credential_2fa_hmac_totp_code.toObject(includeInstance, f),
     signInMailOtp0: (f = msg.getSignInMailOtp0()) && include_user_pb.Obtain_credential_mail_otp_step_0_response.toObject(includeInstance, f),
     signInMailOtp1: (f = msg.getSignInMailOtp1()) && include_user_pb.Obtain_credential_mail_otp_step_1_response.toObject(includeInstance, f),
@@ -224,11 +222,6 @@ proto.Api_request_wrapper.deserializeBinaryFromReader = function(msg, reader) {
       var value = new include_user_pb.Obtain_credential_by_password_naive_attempt;
       reader.readMessage(value,include_user_pb.Obtain_credential_by_password_naive_attempt.deserializeBinaryFromReader);
       msg.setSignInPwdNaive(value);
-      break;
-    case 32:
-      var value = new include_user_pb.Obtain_credential_by_password_pow_1;
-      reader.readMessage(value,include_user_pb.Obtain_credential_by_password_pow_1.deserializeBinaryFromReader);
-      msg.setSignInPwdPow1(value);
       break;
     case 33:
       var value = new include_user_pb.Obtain_credential_2fa_hmac_totp_code;
@@ -348,14 +341,6 @@ proto.Api_request_wrapper.serializeBinaryToWriter = function(message, writer) {
       31,
       f,
       include_user_pb.Obtain_credential_by_password_naive_attempt.serializeBinaryToWriter
-    );
-  }
-  f = message.getSignInPwdPow1();
-  if (f != null) {
-    writer.writeMessage(
-      32,
-      f,
-      include_user_pb.Obtain_credential_by_password_pow_1.serializeBinaryToWriter
     );
   }
   f = message.getSignInHmacTotp();
@@ -669,39 +654,6 @@ proto.Api_request_wrapper.prototype.clearSignInPwdNaive = function() {
  */
 proto.Api_request_wrapper.prototype.hasSignInPwdNaive = function() {
   return jspb.Message.getField(this, 31) != null;
-};
-
-
-/**
- * optional apiv4.user.Obtain_credential_by_password_pow_1 sign_in_pwd_pow_1 = 32;
- * @return {?proto.apiv4.user.Obtain_credential_by_password_pow_1}
- */
-proto.Api_request_wrapper.prototype.getSignInPwdPow1 = function() {
-  return /** @type{?proto.apiv4.user.Obtain_credential_by_password_pow_1} */ (
-    jspb.Message.getWrapperField(this, include_user_pb.Obtain_credential_by_password_pow_1, 32));
-};
-
-
-/** @param {?proto.apiv4.user.Obtain_credential_by_password_pow_1|undefined} value */
-proto.Api_request_wrapper.prototype.setSignInPwdPow1 = function(value) {
-  jspb.Message.setOneofWrapperField(this, 32, proto.Api_request_wrapper.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- */
-proto.Api_request_wrapper.prototype.clearSignInPwdPow1 = function() {
-  this.setSignInPwdPow1(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.Api_request_wrapper.prototype.hasSignInPwdPow1 = function() {
-  return jspb.Message.getField(this, 32) != null;
 };
 
 
