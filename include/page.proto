@@ -47,7 +47,7 @@ message Request_create_or_edit_page {
     string content = 3;
     string revision_comment = 4;
     Visibility visibility = 5;
-    string content_type = 6;
+    reserved 6;
     string language_code = 7;
     string license_name = 8;
 
