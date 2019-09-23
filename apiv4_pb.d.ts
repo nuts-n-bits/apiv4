@@ -21,6 +21,9 @@ export class Api_request_wrapper extends jspb.Message {
   getPowReply(): include_support_pb.Proof_of_work_produced | undefined;
   setPowReply(value?: include_support_pb.Proof_of_work_produced): void;
 
+  getTestfield(): number;
+  setTestfield(value: number): void;
+
   hasPageRenderingElements(): boolean;
   clearPageRenderingElements(): void;
   getPageRenderingElements(): include_page_pb.Request_page_rendering_elements_by_name | undefined;
@@ -87,6 +90,7 @@ export namespace Api_request_wrapper {
     messageVersion: string,
     credential?: include_support_pb.Credential.AsObject,
     powReply?: include_support_pb.Proof_of_work_produced.AsObject,
+    testfield: number,
     pageRenderingElements?: include_page_pb.Request_page_rendering_elements_by_name.AsObject,
     pageMetadata?: include_page_pb.Request_page_metadata_by_name.AsObject,
     createOrEditPage?: include_page_pb.Request_create_or_edit_page.AsObject,

@@ -1160,7 +1160,6 @@ proto.apiv4.page.Request_create_or_edit_page.toObject = function(includeInstance
     content: jspb.Message.getFieldWithDefault(msg, 3, ""),
     revisionComment: jspb.Message.getFieldWithDefault(msg, 4, ""),
     visibility: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    contentType: jspb.Message.getFieldWithDefault(msg, 6, ""),
     languageCode: jspb.Message.getFieldWithDefault(msg, 7, ""),
     licenseName: jspb.Message.getFieldWithDefault(msg, 8, "")
   };
@@ -1214,10 +1213,6 @@ proto.apiv4.page.Request_create_or_edit_page.deserializeBinaryFromReader = funct
     case 5:
       var value = /** @type {!proto.apiv4.page.Request_create_or_edit_page.Visibility} */ (reader.readEnum());
       msg.setVisibility(value);
-      break;
-    case 6:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setContentType(value);
       break;
     case 7:
       var value = /** @type {string} */ (reader.readString());
@@ -1281,13 +1276,6 @@ proto.apiv4.page.Request_create_or_edit_page.serializeBinaryToWriter = function(
   if (f !== 0.0) {
     writer.writeEnum(
       5,
-      f
-    );
-  }
-  f = message.getContentType();
-  if (f.length > 0) {
-    writer.writeString(
-      6,
       f
     );
   }
@@ -1374,21 +1362,6 @@ proto.apiv4.page.Request_create_or_edit_page.prototype.getVisibility = function(
 /** @param {!proto.apiv4.page.Request_create_or_edit_page.Visibility} value */
 proto.apiv4.page.Request_create_or_edit_page.prototype.setVisibility = function(value) {
   jspb.Message.setProto3EnumField(this, 5, value);
-};
-
-
-/**
- * optional string content_type = 6;
- * @return {string}
- */
-proto.apiv4.page.Request_create_or_edit_page.prototype.getContentType = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
-};
-
-
-/** @param {string} value */
-proto.apiv4.page.Request_create_or_edit_page.prototype.setContentType = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 

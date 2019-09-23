@@ -18,6 +18,7 @@ message Api_request_wrapper {
     apiv4.support.Proof_of_work_produced pow_reply = 3;
 
     reserved 32;
+    uint64 testfield = 101;
 
     oneof actual_message {
 

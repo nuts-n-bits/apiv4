@@ -162,9 +162,6 @@ export class Request_create_or_edit_page extends jspb.Message {
   getVisibility(): Request_create_or_edit_page.VisibilityMap[keyof Request_create_or_edit_page.VisibilityMap];
   setVisibility(value: Request_create_or_edit_page.VisibilityMap[keyof Request_create_or_edit_page.VisibilityMap]): void;
 
-  getContentType(): string;
-  setContentType(value: string): void;
-
   getLanguageCode(): string;
   setLanguageCode(value: string): void;
 
@@ -187,7 +184,6 @@ export namespace Request_create_or_edit_page {
     content: string,
     revisionComment: string,
     visibility: Request_create_or_edit_page.VisibilityMap[keyof Request_create_or_edit_page.VisibilityMap],
-    contentType: string,
     languageCode: string,
     licenseName: string,
   }

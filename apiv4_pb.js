@@ -133,6 +133,7 @@ proto.Api_request_wrapper.toObject = function(includeInstance, msg) {
     messageVersion: jspb.Message.getFieldWithDefault(msg, 1, ""),
     credential: (f = msg.getCredential()) && include_support_pb.Credential.toObject(includeInstance, f),
     powReply: (f = msg.getPowReply()) && include_support_pb.Proof_of_work_produced.toObject(includeInstance, f),
+    testfield: jspb.Message.getFieldWithDefault(msg, 101, 0),
     pageRenderingElements: (f = msg.getPageRenderingElements()) && include_page_pb.Request_page_rendering_elements_by_name.toObject(includeInstance, f),
     pageMetadata: (f = msg.getPageMetadata()) && include_page_pb.Request_page_metadata_by_name.toObject(includeInstance, f),
     createOrEditPage: (f = msg.getCreateOrEditPage()) && include_page_pb.Request_create_or_edit_page.toObject(includeInstance, f),
@@ -192,6 +193,10 @@ proto.Api_request_wrapper.deserializeBinaryFromReader = function(msg, reader) {
       var value = new include_support_pb.Proof_of_work_produced;
       reader.readMessage(value,include_support_pb.Proof_of_work_produced.deserializeBinaryFromReader);
       msg.setPowReply(value);
+      break;
+    case 101:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setTestfield(value);
       break;
     case 11:
       var value = new include_page_pb.Request_page_rendering_elements_by_name;
@@ -293,6 +298,13 @@ proto.Api_request_wrapper.serializeBinaryToWriter = function(message, writer) {
       3,
       f,
       include_support_pb.Proof_of_work_produced.serializeBinaryToWriter
+    );
+  }
+  f = message.getTestfield();
+  if (f !== 0) {
+    writer.writeUint64(
+      101,
+      f
     );
   }
   f = message.getPageRenderingElements();
@@ -456,6 +468,21 @@ proto.Api_request_wrapper.prototype.clearPowReply = function() {
  */
 proto.Api_request_wrapper.prototype.hasPowReply = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional uint64 testfield = 101;
+ * @return {number}
+ */
+proto.Api_request_wrapper.prototype.getTestfield = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 101, 0));
+};
+
+
+/** @param {number} value */
+proto.Api_request_wrapper.prototype.setTestfield = function(value) {
+  jspb.Message.setProto3IntField(this, 101, value);
 };
 
 
