@@ -1,8 +1,8 @@
 
-echo "mkdir ..."
-mkdir "./(dist)-apiv4"
+echo "mkdir"
+mkdir "./apiv4"
 
-echo "protoc ..."
+echo "protoc"
 "./bin/protoc" -I="." \
 --plugin="protoc-gen-ts=./node_modules/.bin/protoc-gen-ts" \
 --js_out="import_style=commonjs,binary:./(dist)-apiv4" --ts_out="./(dist)-apiv4" \
@@ -13,5 +13,7 @@ echo "protoc ..."
 "./include/user.proto" \
 "./include/feed.proto"
 
-echo "mv ..."
-mv "./(dist)-apiv4" "../node_modules/apiv4"
+echo "mv"
+mv "./apiv4" "../node_modules/apiv4"
+
+echo "done"
