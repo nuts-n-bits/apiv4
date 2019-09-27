@@ -32,6 +32,7 @@ message Api_request_wrapper {
         apiv4.user.Obtain_credential_mail_otp_step_0_response sign_in_mail_otp_0 = 34;
         apiv4.user.Obtain_credential_mail_otp_step_1_response sign_in_mail_otp_1 = 35;
         apiv4.user.Request_create_user_naive_attempt create_user_naive = 36;
+        apiv4.user.Request_apply_anonymous_user apply_anonymous_user = 37;
     }
 }
 
@@ -68,5 +69,6 @@ message Api_response_wrapper {
         apiv4.user.Reply_2fa_mail_otp_step_1_mail_sent sign_in_mail_totp_step_1 = 43;
         apiv4.user.Response_credential_granted credential_granted = 44;
         apiv4.user.Response_user_created user_created = 45;
+        apiv4.user.Response_user_created anonymous_user_created = 46;
     }
 }
