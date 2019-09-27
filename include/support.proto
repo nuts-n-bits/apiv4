@@ -6,6 +6,7 @@ message Credential {
 
     string session_id_bis = 1;
     string session_secret = 2;
+    string expiry_iso = 3;
 }
 
 message Group_model {
