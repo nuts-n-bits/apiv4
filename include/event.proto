@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package apiv4.event;
+
+import "include/page.proto";
+import "include/feed.proto";
+import "include/user.proto";
+
+message Event {
+
+    string event_id_bis = 1;
+    string event_creation_time = 2;
+
+    repeated apiv4.page.Page_metadata event_page = 3;
+    repeated apiv4.feed.Feed_metadata event_feed = 4;
+    repeated apiv4.user.User_public_model event_user = 5;
+    repeated apiv4.revision.Revision_metadata event_revision = 6;
+}
