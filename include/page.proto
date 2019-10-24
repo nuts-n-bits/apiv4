@@ -25,6 +25,7 @@ message Page_metadata {
 }
 
 message Page_with_rendering_elements {
+    
     Page_metadata page_meta = 1;
     apiv4.revision.Revision_metadata rev_meta = 2;
     string content = 3;

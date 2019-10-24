@@ -45,6 +45,7 @@ message Api_response_wrapper {
     bool execution_ok = 2;
 
     enum Broad_error_type {
+        
         no_info = 0;
         insufficient_permission = 1;
         invalid_message = 2;
@@ -60,6 +61,7 @@ message Api_response_wrapper {
     string mission_specific_error = 4;
 
     oneof actual_message {
+
         apiv4.page.Page_with_rendering_elements page_rendering_elements = 11;
         apiv4.page.Page_metadata page_metadata = 12;
         apiv4.feed.Feed_with_rendering_elements feed_rendering_elements = 21;
