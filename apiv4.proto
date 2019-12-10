@@ -1,5 +1,5 @@
 // These messages are all for the same api endpoint that will always return protobuf
-// results. If you want raw data, or you can't use protobuf, please use ad-hoc api.
+// results. If you want raw data, or you can't use protobuf, you use ad-hoc api at /api/what-ever
 
 // current version: 4.0.1
 
