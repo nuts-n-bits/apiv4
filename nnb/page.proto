@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package apiv4.page;
 
-import "include/revision.proto";
-import "include/user.proto";
+import "revision.proto";
+import "user.proto";
 
 message Page_metadata {
 
@@ -34,6 +34,8 @@ message Page_with_rendering_elements {
 message Request_page_rendering_elements_by_name {
 
     string page_name = 1;
+    string sid = 2;
+    string ssec = 3;
 }
 
 message Request_page_metadata_by_name {
@@ -51,6 +53,8 @@ message Request_create_or_edit_page {
     reserved 6;
     string language_code = 7;
     string license_name = 8;
+    string sid_bis = 9;
+    string ssec_bis = 10;
 
     enum Visibility {
         all_visible = 0;
@@ -77,7 +81,8 @@ message Request_history_rendering_elements_by_page_name_ns {
 
 message Page_creation_report {
 
-    bool success = 1;
+    reserved 1;
     string new_pid_bis = 2;
     string new_apparent_page_name = 3;
+    string new_revision_bis = 4;
 }

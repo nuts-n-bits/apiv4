@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package apiv4.event;
 
-import "include/page.proto";
-import "include/feed.proto";
-import "include/user.proto";
+import "page.proto";
+import "feed.proto";
+import "user.proto";
 
 message Event {
 

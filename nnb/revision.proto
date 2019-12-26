@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package apiv4.revision;
 
-import "include/user.proto";
+import "user.proto";
 
 message Revision_metadata {
 

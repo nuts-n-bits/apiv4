@@ -9,15 +9,15 @@ echo "mkdir" $dist_dir
 mkdir $dist_dir
 
 echo "protoc"
-"./bin/protoc" -I="." \
+"./bin/protoc" -I="./nnb" \
 --plugin="protoc-gen-ts=./node_modules/.bin/protoc-gen-ts" \
 --js_out="import_style=commonjs,binary:"$dist_dir --ts_out=$dist_dir \
-"apiv4.proto" \
-"./include/page.proto" \
-"./include/revision.proto" \
-"./include/support.proto" \
-"./include/user.proto" \
-"./include/feed.proto"
+"./nnb/page.proto" \
+"./nnb/revision.proto" \
+"./nnb/support.proto" \
+"./nnb/user.proto" \
+"./nnb/feed.proto"
+
 
 echo "mv" $dist_dir $target_dir
 mv $dist_dir $target_dir
