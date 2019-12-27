@@ -25,7 +25,7 @@ message User_private_model {
 
 enum Require_credential_expiry {
     expiry_type_one_day = 0;
-    expiry_type_90_days = 1;
+    expiry_type_180_days = 1;
 }
 
 // login
@@ -82,8 +82,9 @@ message Obtain_credential_mail_otp_step_1_response {
 
 message Response_credential_granted {
 
-    apiv4.support.Credential credential = 1;
-    string expiry_iso = 2;
+    string sid = 1;
+    string ssec = 2;
+    string expiry_iso = 3;
 }
 
 message Request_create_user_naive_attempt {
@@ -94,7 +95,7 @@ message Request_create_user_naive_attempt {
     string mhkd8192 = 4;
 }
 
-message Request_apply_anonymous_user {
+message Request_anonymous_user {
     
 }
 
