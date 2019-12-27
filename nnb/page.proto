@@ -11,17 +11,15 @@ message Page_metadata {
     string namespace = 2;
     string language_code = 3;
     string page_id_bis = 4;
-    reserved 5;
-    string creation_time_iso = 6;
-    string update_time_iso = 7;
-    reserved 8;
-    string license_name = 9;
-    string page_content_model = 10;
-    string event_id_bis = 11;
-    string creator_display_name = 12;
-    string creator_id_name = 13;
-    string current_editor_display_name = 14;
-    string current_editor_id_name = 15;
+    string creation_time_iso = 5;
+    string update_time_iso = 6;
+    string license_name = 7;
+    string page_content_model = 8;
+    string event_id_bis = 9;
+    string creator_display_name = 10;
+    string creator_id_name = 11;
+    string current_editor_display_name = 12;
+    string current_editor_id_name = 13;
 }
 
 message Page_with_rendering_elements {
@@ -51,15 +49,13 @@ message Request_page_metadata_by_name {
 message Request_create_or_edit_page {
 
     string page_name = 1;  // Apparent page name. Namespace resolved by server
-    reserved 2;
-    string content = 3;
-    string revision_comment = 4;
-    Visibility visibility = 5;
-    reserved 6;
-    string language_code = 7;
-    string license_name = 8;
-    string sid_bis = 9;
-    string ssec_bis = 10;
+    string content = 2;
+    string revision_comment = 3;
+    Visibility visibility = 4;
+    string language_code = 5;
+    string license_name = 6;
+    string sid_bis = 7;
+    string ssec_bis = 8;
 
     enum Visibility {
         all_visible = 0;

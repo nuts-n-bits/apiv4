@@ -95,10 +95,6 @@ message Request_create_user_naive_attempt {
     string mhkd8192 = 4;
 }
 
-message Request_anonymous_user {
-    
-}
-
 message Response_user_created {
     
     string user_id_bis = 1;
