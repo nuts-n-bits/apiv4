@@ -1,9 +1,8 @@
 dist_dir="./dist"
 target_dir="../node_modules/apiv4"
 
-echo "rm -rf" $dist_dir $target_dir
+echo "rm -rf" $dist_dir
 rm -rf $dist_dir
-rm -rf $target_dir
 
 echo "mkdir" $dist_dir
 mkdir $dist_dir
@@ -18,6 +17,8 @@ echo "protoc"
 "./nnb/user.proto" \
 "./nnb/feed.proto"
 
+echo "rm -rf" -rf $target_dir
+rm -rf $target_dir
 
 echo "mv" $dist_dir $target_dir
 mv $dist_dir $target_dir

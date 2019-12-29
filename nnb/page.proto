@@ -82,10 +82,39 @@ message Request_history_rendering_elements_by_page_name_ns {
     }
 }
 
-message Page_creation_report {
+message Page_create_or_edit_report {
 
-    reserved 1;
-    string new_pid_bis = 2;
-    string new_apparent_page_name = 3;
-    string new_revision_bis = 4;
+    string pid_bis = 1;
+    string apparent_page_name = 2;
+    string revision_bis = 3;
+}
+
+message Request_delete_page_by_apparent_name {
+    
+    string apparent_page_name = 1;
+    string summary = 2;
+    string sid = 3;
+    string ssec = 4;
+}
+
+message Page_deletion_report {
+
+    string pid_bis = 1;
+    string apparent_page_name = 2;
+}
+
+message Request_move_page_by_apparent_name {
+
+    string original_apparent_page_name = 1;
+    string new_apparent_page_name = 2;
+    bool create_redirection_page = 3;
+    Conflict_resolution_strategy conflict_resolution = 4;
+    string sid = 5;
+    string ssec = 6;
+    
+    enum Conflict_resolution_strategy {
+        abort = 0;
+        swap_pages = 1;
+        delete_target_page = 2;
+    }
 }
