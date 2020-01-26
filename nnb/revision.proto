@@ -7,10 +7,12 @@ import "user.proto";
 message Revision_metadata {
 
     string rev_id_bis = 1;
-    reserved 2;
-    string creation_time_bis = 3;
-    string comment = 4;
-    string related_page_id_bis = 5;
-    string creator_display_name = 6;
-    string creator_id_name = 7;
+    string creation_time_bis = 2;
+    string comment = 3;
+    string related_page_id_bis = 4;
+    string creator_display_name = 5;
+    string creator_id_name = 6;
+    bool read_permission_elevated = 7;
+    int32 size = 8;
+    bool deleted = 9;
 }
