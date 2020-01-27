@@ -19,9 +19,9 @@ message Page_metadata {
     string creator_id_name = 11;
     string current_editor_display_name = 12;
     string current_editor_id_name = 13;
-    bool deleted = 14;
-
-    bool page_is_stripped = 15;
+    string page_config = 14;
+    bool deleted = 15;
+    bool page_is_stripped = 16;
 }
 
 message Page_with_rendering_elements {
@@ -133,4 +133,18 @@ message Request_move_page_by_apparent_name {
 message Page_move_report {
     
     string page_id_bis = 3;
+}
+
+message Request_update_page_config {
+
+    string apparent_page_name = 1;
+    string new_config = 2;
+    string operation_comment = 3;
+    string sid = 4;
+    string ssec = 5;
+}
+
+message Page_config_update_report {
+
+    string page_id_bis = 1;
 }
