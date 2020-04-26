@@ -34,3 +34,10 @@ message Proof_of_work_produced {
     string pow_answer = 2;
 }
 
+message Error_report {
+
+    uint32 http_status = 1;
+    uint32 error_code = 2;
+    string location = 3;
+    string human_readable_comment = 4;
+}

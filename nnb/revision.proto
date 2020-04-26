@@ -12,7 +12,7 @@ message Revision_metadata {
     string related_page_id_bis = 4;
     string creator_display_name = 5;
     string creator_id_name = 6;
-    bool read_permission_elevated = 7;
+    bool elevated_read_permission = 7;
     int32 size = 8;
     bool deleted = 9;
 }

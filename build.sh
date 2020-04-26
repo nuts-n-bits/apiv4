@@ -17,7 +17,7 @@ echo "protoc"
 "./nnb/user.proto" \
 "./nnb/feed.proto"
 
-echo "rm -rf" -rf $target_dir
+echo "rm -rf" $target_dir
 rm -rf $target_dir
 
 echo "mv" $dist_dir $target_dir

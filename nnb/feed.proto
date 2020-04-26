@@ -2,10 +2,8 @@ syntax = "proto3";
 
 package apiv4.feed;
 
-import "support.proto";
 import "page.proto";
 import "user.proto";
-import "revision.proto";
 
 message Feed_metadata {
 
