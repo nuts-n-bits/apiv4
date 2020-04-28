@@ -17,8 +17,9 @@
   },
   "homepage": "https://github.com/nuts-n-bits/apiv4#readme",
   "dependencies": {
-    "ts-protoc-gen": "^0.10.0",
-    "@types/google-protobuf": "^3.7.1"
+    "@types/google-protobuf": "^3.7.1",
+    "google-protobuf": "^3.11.4",
+    "ts-protoc-gen": "^0.10.0"
   },
   "__processed_by_ivy_ngcc__": {
     "main": "8.2.6"
