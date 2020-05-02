@@ -136,3 +136,8 @@ message Request_user_model_by_identifier {
 message Response_user_model_by_identifier {
     User_public_model model = 1;
 }
+
+message Session_validity_heartbeat_request {
+    string sid = 1;
+    string ssec = 2;
+}
