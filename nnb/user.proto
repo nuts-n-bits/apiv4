@@ -78,6 +78,10 @@ message Request_credential_mail_otp_step_1_response {
     string mail_token = 3;
 }
 
+message Request_credential_by_secure_link {
+    string secure_link_entropy = 1;
+}
+
 message Response_credential_granted {
 
     string sid = 1;
