@@ -22,6 +22,7 @@ message Page_metadata {
     string page_config = 14;
     bool deleted = 15;
     bool page_is_stripped = 16;
+    string namespace_name = 17;
 }
 
 message Page_with_rendering_elements {
@@ -32,32 +33,34 @@ message Page_with_rendering_elements {
 }
 
 message Request_page_rendering_elements_by_apparent_name {
+
+    string sid = 1;
+    string ssec = 2;
     // apparent pagename e.g. "meta/discussion" is a page named "discussion" under namespace 5 ("meta")
     // apparent pagename can be resolved into a namespace number and a page name by server
     // it is possible to have page named in the shape of "not-a-namespace/pagename".
-    // in this case the entire page name is "not-a-namespace/pagename" and the namespace is 0 (default).
-    string apparent_page_name = 1;
-    string sid = 2;
-    string ssec = 3;
+    // in this case the entire page name is "not-a-namespace/pagename" and the namespace is 0 ("principle").
+    string apparent_page_name = 3;
+
 }
 
 message Request_page_metadata_by_name {
 
-    string page_name = 1;
-    string sid = 2;
-    string ssec = 3;
+    string sid = 1;
+    string ssec = 2;
+    string page_name = 3;
 }
 
 message Request_create_or_edit_page {
 
-    string page_name = 1;  // Apparent page name. Namespace resolved by server
-    string content = 2;
-    string revision_comment = 3;
-    Visibility visibility = 4;
-    string language_code = 5;
-    string license_name = 6;
-    string sid_bis = 7;
-    string ssec_bis = 8;
+    string sid_bis = 1;
+    string ssec_bis = 2;
+    string page_name = 3;  // Apparent page name. Namespace resolved by server
+    string content = 4;
+    string revision_comment = 5;
+    Visibility visibility = 6;
+    string language_code = 7;
+    string license_name = 8;
 
     enum Visibility {
         all_visible = 0;
@@ -68,16 +71,16 @@ message Request_create_or_edit_page {
 
 message Request_history_rendering_elements_by_apparent_page_name {
 
-    string apparent_page_name = 1;
-    Direction direction = 2;
+    string sid = 1;
+    string ssec = 2;
+
+    string apparent_page_name = 3;
+    Direction direction = 4;
     oneof start_from {
-        string start_from_rev_id_bis = 3;
-        string start_from_timestamp_iso = 4;
+        string start_from_rev_id_bis = 5;
+        string start_from_timestamp_iso = 6;
     }
-    reserved 5;
-    int32 request_amount = 6;
-    string sid = 7;
-    string ssec = 8;
+    int32 request_amount = 7;
 
     enum Direction {
         new_to_old = 0;
@@ -102,10 +105,10 @@ message Page_create_or_edit_report {
 
 message Request_delete_page_by_apparent_name {
     
-    string apparent_page_name = 1;
-    string summary = 2;
-    string sid = 3;
-    string ssec = 4;
+    string sid = 1;
+    string ssec = 2;
+    string apparent_page_name = 3;
+    string summary = 4;
 }
 
 message Page_deletion_report {
@@ -116,13 +119,15 @@ message Page_deletion_report {
 
 message Request_move_page_by_apparent_name {
 
-    string original_apparent_page_name = 1;
-    string new_apparent_page_name = 2;
-    bool create_redirection_page = 3;
-    Conflict_resolution_strategy conflict_resolution = 4;
-    string summary = 5;
-    string sid = 6;
-    string ssec = 7;
+    string sid = 1;
+    string ssec = 2;
+
+    string original_apparent_page_name = 3;
+    string new_apparent_page_name = 4;
+    bool create_redirection_page = 5;
+    Conflict_resolution_strategy conflict_resolution = 6;
+    string summary = 7;
+
     
     enum Conflict_resolution_strategy {
         abort = 0;
@@ -137,14 +142,29 @@ message Page_move_report {
 
 message Request_update_page_config {
 
-    string apparent_page_name = 1;
-    string new_config = 2;
-    string operation_comment = 3;
-    string sid = 4;
-    string ssec = 5;
+    string sid = 1;
+    string ssec = 2;
+    string apparent_page_name = 3;
+    string new_config = 4;
+    string operation_comment = 5;
 }
 
 message Page_config_update_report {
 
     string page_id_bis = 1;
+}
+
+message Request_update_page_peripheral_config {
+    
+    string sid = 1;
+    string ssec = 2;
+    string apparent_page_name = 3;
+    string comment = 4;
+
+    bool change_license_name = 5;
+    string new_license_name = 6;
+    bool change_language_code = 7;
+    string new_language_code = 8;
+    bool change_content_model = 9;
+    string new_content_model = 10;
 }
