@@ -1,5 +1,5 @@
 dist_dir="./dist"
-target_dir1="../node5tse/node_modules/apiv4"
+target_dir1="../node5e/node_modules/apiv4"
 target_dir2="../angular2/node_modules/apiv4"
 
 echo "rm -rf" $dist_dir
