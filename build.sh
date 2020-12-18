@@ -1,17 +1,18 @@
 dist_dir="./dist"
+jsout_dir="./dist/nnb"
 target_dir1="../node5e/node_modules/apiv4"
 target_dir2="../angular2/node_modules/apiv4"
 
-echo "rm -rf" $dist_dir
-rm -rf $dist_dir
+echo "rm -rf" $jsout_dir
+rm -rf $jsout_dir
 
-echo "mkdir" $dist_dir
-mkdir $dist_dir
+echo "mkdir" $jsout_dir
+mkdir $jsout_dir
 
 echo "protoc"
 "./bin/protoc" -I="./nnb" \
 --plugin="protoc-gen-ts=./node_modules/.bin/protoc-gen-ts" \
---js_out="import_style=es6,binary:"$dist_dir --ts_out=$dist_dir \
+--js_out="import_style=commonjs,binary:"$jsout_dir --ts_out=$jsout_dir \
 "./nnb/page.proto" \
 "./nnb/revision.proto" \
 "./nnb/support.proto" \
