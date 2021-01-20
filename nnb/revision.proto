@@ -7,7 +7,7 @@ import "user.proto";
 message Revision_metadata {
 
     string rev_id_bis = 1;
-    string creation_time_bis = 2;
+    string creation_time_iso = 2;
     string comment = 3;
     string related_page_id_bis = 4;
     string creator_display_name = 5;

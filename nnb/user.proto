@@ -13,7 +13,7 @@ message User_public_model {
     string language_code = 6;
     bool locked = 7;
     string locked_type_bis = 8;
-    bool bot = 9;
+    reserved 9;
     repeated string groups = 10;
     repeated string tags = 11;
     repeated string activities = 12;
@@ -149,10 +149,24 @@ message Session_validity_heartbeat_request {
 message Session_validity_heartbeat_response {
     string sid = 1;
     string valid_until_iso = 2;
-    string renewable_until_iso = 3;
 }
 
 message Request_invalidate_session {
     string sid = 1;
     string ssec = 2;
+}
+
+message Request_contribs_rendering_elements {
+    string sid = 1;
+    string ssec = 2;
+}
+
+message Contribs_with_rendering_elements {
+    string uid_bis = 1;
+    string user_id_name = 2;
+    string user_display_name = 3;
+    repeated Contrib contribs = 4;
+    message Contrib {
+
+    }
 }

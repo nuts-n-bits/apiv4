@@ -7,7 +7,7 @@ import "revision.proto";
 message Page_metadata {
 
     string page_name = 1;
-    string namespace = 2;
+    string namespace_id_bis = 2;
     string language_code = 3;
     string page_id_bis = 4;
     string creation_time_iso = 5;
@@ -75,17 +75,11 @@ message Request_history_rendering_elements_by_apparent_page_name {
     string ssec = 2;
 
     string apparent_page_name = 3;
-    Direction direction = 4;
-    oneof start_from {
-        string start_from_rev_id_bis = 5;
-        string start_from_timestamp_iso = 6;
-    }
-    int32 request_amount = 7;
-
-    enum Direction {
-        new_to_old = 0;
-        old_to_new = 1;
-    }
+    string smallest_date_iso = 4;
+    string biggest_date_iso = 5;
+    string smallest_id_bis = 6;
+    string biggest_id_bis = 7;
+    int32 request_amount_suggestion = 8;
 }
 
 message Page_history_with_rendering_elements {
