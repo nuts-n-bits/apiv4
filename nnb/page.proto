@@ -23,6 +23,7 @@ message Page_metadata {
     bool deleted = 15;
     bool page_is_stripped = 16;
     string namespace_name = 17;
+    string current_revision_id_bis = 18;
 }
 
 message Page_with_rendering_elements {
@@ -36,12 +37,14 @@ message Request_page_rendering_elements_by_apparent_name {
 
     string sid = 1;
     string ssec = 2;
-    // apparent pagename e.g. "meta/discussion" is a page named "discussion" under namespace 5 ("meta")
-    // apparent pagename can be resolved into a namespace number and a page name by server
-    // it is possible to have page named in the shape of "not-a-namespace/pagename".
-    // in this case the entire page name is "not-a-namespace/pagename" and the namespace is 0 ("principle").
     string apparent_page_name = 3;
+}
 
+message Request_page_rendering_elements_by_revision_id {
+
+    string sid = 1;
+    string ssec = 2;
+    string revision_id_bis = 3;
 }
 
 message Request_page_metadata_by_name {

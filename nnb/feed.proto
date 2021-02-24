@@ -34,6 +34,7 @@ message Request_feed_rendering_elements_by_name {
     string smallest_date_iso = 6;
     string biggest_id_bis = 7;
     string smallest_id_bis = 8;
+    bool asc = 9;
 
 }
 
@@ -60,15 +61,26 @@ message Request_create_feed {
         admin_visible = 1;  // Up to namespace-specific business logic to determine how to enforce.
         self_visible = 2;  // Ditto, up to namespace-specific logic to determine if possible.
     }
-
 }
 
-message Request_attach_to_feed {
+message Response_feed_created {
+    string feed_id_bis = 1;
+}
+
+message Request_append_to_feed {
 
     string sid = 1;
     string ssec = 2;
     string apparent_feed_name = 3;
     string content = 4;
+    string comment = 5;
+    string lang_code = 6;
+    string content_model = 7;
+}
+
+message Response_append_to_feed {
+
+    string new_page_id_bis = 1;
 }
 
 
@@ -83,4 +95,5 @@ message Request_create_ticket {
 
 message Response_ticket_created {
     string ticket_name = 1;
+    string ticket_apparent_name = 2;
 }
