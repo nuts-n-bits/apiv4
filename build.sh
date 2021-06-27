@@ -16,4 +16,6 @@ echo "protoc"
 "./nnb/user.proto" \
 "./nnb/feed.proto"
 
+echo "npm pack"
+npm pack
 echo "done"

@@ -3,7 +3,7 @@ syntax = "proto3";
 package apiv4.user;
 import "support.proto";
 
-message User_public_model {
+message UserPublicModel {
 
     string id_bis = 1;
     string creation_time_iso = 2;
@@ -19,9 +19,9 @@ message User_public_model {
     repeated string activities = 12;
 }
 
-message User_private_model {
+message UserPrivateModel {
 
-    User_public_model public_model = 1;
+    UserPublicModel public_model = 1;
     string email = 2;
     string last_password_update_iso = 4;
     repeated string bookmarks = 5;
@@ -29,7 +29,7 @@ message User_private_model {
 
 // login
 
-message Request_credential_by_password_naive_attempt {
+message RequestCredentialByPasswordNaiveAttempt {
 
     string user_name_normalized = 1;
     string user_email_primary = 2;
@@ -37,21 +37,21 @@ message Request_credential_by_password_naive_attempt {
     uint32 require_expiry_in_seconds = 4;
 }
 
-message Response_2fa_hmac_totp_required_to_obtain_credential {
+message Response2faHmacTotpRequiredToObtainCredential {
 
     string target_uid_bis = 1;
     string intermediate_access_grant_token = 2;
     string expiry_iso = 3;
 }
 
-message Request_credential_2fa_hmac_totp_code {
+message RequestCredential2faHmacTotpCode {
 
     string target_uid_bis = 1;
     string intermediate_access_grant_token = 2;
     string totp_token = 3;
 }
 
-message Response_2fa_mail_otp_step_0_verify_email_addr {
+message Response2faMailOtpStep0VerifyEmailAddr {
 
     string target_uid_bis = 1;
     string intermediate_access_grant_token = 2;
@@ -59,37 +59,37 @@ message Response_2fa_mail_otp_step_0_verify_email_addr {
     string expiry_iso = 4;
 }
 
-message Request_credential_mail_otp_step_0_response {
+message RequestCredentialMailOtpStep0Response {
     
     string target_uid_bis = 1;
     string intermediate_access_grant_token = 2;
     string full_email = 3;
 }
 
-message Response_2fa_mail_otp_step_1_mail_sent {
+message Response2faMailOtpStep1MailSent {
 
     string expiry_iso = 1;
 }
 
-message Request_credential_mail_otp_step_1_response {
+message RequestCredentialMailOtpStep1Response {
 
     string target_uid_bis = 1;
     string intermediate_access_grant_token = 2;
     string mail_token = 3;
 }
 
-message Request_credential_by_secure_link {
+message RequestCredentialBySecureLink {
     string secure_link_entropy = 1;
 }
 
-message Response_credential_granted {
+message ResponseCredentialGranted {
 
     string sid = 1;
     string ssec = 2;
     string expiry_iso = 3;
 }
 
-message Request_create_user_naive_attempt {
+message RequestCreateUserNaiveAttempt {
 
     string identifying_name = 1;
     string display_name = 2;
@@ -97,7 +97,7 @@ message Request_create_user_naive_attempt {
     string mhkd8192 = 4;
 }
 
-message Response_user_created {
+message ResponseUserCreated {
     
     string user_id_bis = 1;
     string sid_bis = 2;
@@ -105,7 +105,7 @@ message Response_user_created {
     string expiry_iso = 4;
 }
 
-message Request_user_model_by_session {
+message RequestUserModelBySession {
     
     string sid = 1;
     string ssec = 2;
@@ -123,11 +123,11 @@ message Request_user_model_by_session {
     string get_activities_start_point = 11;
 }
 
-message Response_user_model_by_session {
-    User_private_model model = 1;
+message ResponseUserModelBySession {
+    UserPrivateModel model = 1;
 }
 
-message Request_user_model_by_identifier {
+message RequestUserModelByIdentifier {
     
     oneof identifier {
         string id_bis = 1;
@@ -137,35 +137,35 @@ message Request_user_model_by_identifier {
 
 }
 
-message Response_user_model_by_identifier {
-    User_public_model model = 1;
+message ResponseUserModelByIdentifier {
+    UserPublicModel model = 1;
 }
 
-message Session_validity_heartbeat_request {
+message SessionValidityHeartbeatRequest {
     string sid = 1;
     string ssec = 2;
 }
 
-message Session_validity_heartbeat_response {
+message SessionValidityHeartbeatResponse {
     string sid = 1;
     string valid_until_iso = 2;
 }
 
-message Request_invalidate_session {
+message RequestInvalidateSession {
     string sid = 1;
     string ssec = 2;
 }
 
-message Response_invalidate_session {
+message ResponseInvalidateSession {
     
 }
 
-message Request_contribs_rendering_elements {
+message RequestContribsRenderingElements {
     string sid = 1;
     string ssec = 2;
 }
 
-message Contribs_with_rendering_elements {
+message ContribsWithRenderingElements {
     string uid_bis = 1;
     string user_id_name = 2;
     string user_display_name = 3;

@@ -9,14 +9,14 @@ message Credential {
     string expiry_iso = 3;
 }
 
-message Group_model {
+message GroupModel {
 
     string group_id_bis = 1;
     string group_name_bis = 2;
     repeated string group_permissions_id_bis = 3;
 }
 
-message Proof_of_work_required_to_continue {
+message ProofOfWorkRequiredToContinue {
 
     string pow_worklet_identifier = 1;
     enum Pow_type {
@@ -28,13 +28,13 @@ message Proof_of_work_required_to_continue {
     string expiry_iso = 4;
 }
 
-message Proof_of_work_produced {
+message ProofOfWorkProduced {
 
     string pow_worklet_identifier = 1;
     string pow_answer = 2;
 }
 
-message Error_report {
+message ErrorReport {
 
     uint32 http_status = 1;
     uint32 error_code = 2;

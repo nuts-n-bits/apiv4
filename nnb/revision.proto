@@ -4,7 +4,7 @@ package apiv4.revision;
 
 import "user.proto";
 
-message Revision_metadata {
+message RevisionMetadata {
 
     string rev_id_bis = 1;
     string creation_time_iso = 2;

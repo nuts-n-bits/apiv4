@@ -5,7 +5,7 @@ package apiv4.feed;
 import "page.proto";
 import "user.proto";
 
-message Feed_metadata {
+message FeedMetadata {
 
     string feed_id_bis = 1;
     string namespace_id_bis = 2;
@@ -18,13 +18,13 @@ message Feed_metadata {
     string event_id_bis = 9;
 }
 
-message Feed_with_rendering_elements {
+message FeedWithRenderingElements {
 
-    Feed_metadata feed_meta = 1;
-    repeated apiv4.page.Page_with_rendering_elements feed_render = 2;
+    FeedMetadata feed_meta = 1;
+    repeated apiv4.page.PageWithRenderingElements feed_render = 2;
 }
 
-message Request_feed_rendering_elements_by_name {
+message RequestFeedRenderingElementsByName {
 
     string sid = 1;
     string ssec = 2;
@@ -38,14 +38,14 @@ message Request_feed_rendering_elements_by_name {
 
 }
 
-message Request_feed_metadata_by_name {
+message RequestFeedMetadataByName {
 
     string sid = 1;
     string ssec = 2;
     string apparent_feed_name = 3;
 }
 
-message Request_create_feed {
+message RequestCreateFeed {
 
     string sid = 1;
     string ssec = 2;
@@ -63,11 +63,11 @@ message Request_create_feed {
     }
 }
 
-message Response_feed_created {
+message ResponseFeedCreated {
     string feed_id_bis = 1;
 }
 
-message Request_append_to_feed {
+message RequestAppendToFeed {
 
     string sid = 1;
     string ssec = 2;
@@ -78,13 +78,13 @@ message Request_append_to_feed {
     string content_model = 7;
 }
 
-message Response_append_to_feed {
+message ResponseAppendToFeed {
 
     string new_page_id_bis = 1;
 }
 
 
-message Request_create_ticket {
+message RequestCreateTicket {
     string sid = 1;
     string ssec = 2;
     string target_ns = 3;
@@ -93,7 +93,7 @@ message Request_create_ticket {
     string language_code = 6;
 }
 
-message Response_ticket_created {
+message ResponseTicketCreated {
     string ticket_name = 1;
     string ticket_apparent_name = 2;
 }

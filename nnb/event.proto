@@ -11,8 +11,8 @@ message Event {
     string event_id_bis = 1;
     string event_creation_time = 2;
 
-    repeated apiv4.page.Page_metadata event_page = 3;
-    repeated apiv4.feed.Feed_metadata event_feed = 4;
-    repeated apiv4.user.User_public_model event_user = 5;
-    repeated apiv4.revision.Revision_metadata event_revision = 6;
+    repeated apiv4.page.PageMetadata event_page = 3;
+    repeated apiv4.feed.FeedMetadata event_feed = 4;
+    repeated apiv4.user.UserPublicModel event_user = 5;
+    repeated apiv4.revision.RevisionMetadata event_revision = 6;
 }
