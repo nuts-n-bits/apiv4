@@ -56,8 +56,8 @@ message RequestPageMetadataByName {
 
 message RequestCreateOrEditPage {
 
-    string sid_bis = 1;
-    string ssec_bis = 2;
+    string sid = 1;
+    string ssec = 2;
     string page_name = 3;  // Apparent page name. Namespace resolved by server
     string content = 4;
     string revision_comment = 5;
