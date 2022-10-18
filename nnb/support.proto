@@ -2,11 +2,8 @@ syntax = "proto3";
 
 package apiv4.support;
 
-message Credential {
-
-    string session_id_bis = 1;
-    string session_secret = 2;
-    string expiry_iso = 3;
+message Empty {
+    
 }
 
 message GroupModel {
@@ -16,7 +13,7 @@ message GroupModel {
     repeated string group_permissions_id_bis = 3;
 }
 
-message ProofOfWorkRequiredToContinue {
+message ProofOfWorkChallenge {
 
     string pow_worklet_identifier = 1;
     enum Pow_type {
@@ -37,7 +34,7 @@ message ProofOfWorkProduced {
 message ErrorReport {
 
     uint32 http_status = 1;
-    uint32 error_code = 2;
-    string location = 3;
-    string human_readable_comment = 4;
+    string e_code = 2;
+    string position = 3;
+    string e_desc = 4;
 }

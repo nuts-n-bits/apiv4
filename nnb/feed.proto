@@ -5,8 +5,7 @@ package apiv4.feed;
 import "page.proto";
 import "user.proto";
 
-message FeedMetadata {
-
+message Feed {
     string feed_id_bis = 1;
     string namespace_id_bis = 2;
     string feed_name = 3;
@@ -16,17 +15,11 @@ message FeedMetadata {
     string feed_config = 7;
     string namespace_name = 8;
     string event_id_bis = 9;
+    repeated apiv4.page.Page feed_render_ele = 10;
 }
 
-message FeedWithRenderingElements {
-
-    FeedMetadata feed_meta = 1;
-    repeated apiv4.page.PageWithRenderingElements feed_render = 2;
-}
-
-message RequestFeedRenderingElementsByName {
-
-    string sid = 1;
+message FeedReq {
+    reserved 1; 
     string ssec = 2;
     string apparent_feed_name = 3;
     int32 request_amount_suggestion = 4;
@@ -35,19 +28,11 @@ message RequestFeedRenderingElementsByName {
     string biggest_id_bis = 7;
     string smallest_id_bis = 8;
     bool asc = 9;
-
+    bool exclude_feed_render_ele = 10;
 }
 
-message RequestFeedMetadataByName {
-
-    string sid = 1;
-    string ssec = 2;
-    string apparent_feed_name = 3;
-}
-
-message RequestCreateFeed {
-
-    string sid = 1;
+message FeedCreateReq {
+    reserved 1; 
     string ssec = 2;
     string apparent_feed_name = 3;
     string initial_content = 4;
@@ -55,7 +40,6 @@ message RequestCreateFeed {
     Visibility visibility = 6;
     string language_code = 7;
     string license_name = 8;
-
     enum Visibility {
         all_visible = 0;
         admin_visible = 1;  // Up to namespace-specific business logic to determine how to enforce.
@@ -63,13 +47,12 @@ message RequestCreateFeed {
     }
 }
 
-message ResponseFeedCreated {
-    string feed_id_bis = 1;
+message FeedCreateRes {
+    string feed_id_bis = 2;
 }
 
-message RequestAppendToFeed {
-
-    string sid = 1;
+message FeedAppendReq {
+    reserved 1;
     string ssec = 2;
     string apparent_feed_name = 3;
     string content = 4;
@@ -78,14 +61,12 @@ message RequestAppendToFeed {
     string content_model = 7;
 }
 
-message ResponseAppendToFeed {
-
+message FeedAppendRes {
     string new_page_id_bis = 1;
 }
 
-
-message RequestCreateTicket {
-    string sid = 1;
+message FeedTicketCreateReq {
+    reserved 1; 
     string ssec = 2;
     string target_ns = 3;
     string content = 4;
@@ -93,7 +74,7 @@ message RequestCreateTicket {
     string language_code = 6;
 }
 
-message ResponseTicketCreated {
+message FeedTicketCreateRes {
     string ticket_name = 1;
     string ticket_apparent_name = 2;
 }

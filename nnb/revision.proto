@@ -14,5 +14,5 @@ message RevisionMetadata {
     string creator_id_name = 6;
     bool elevated_read_permission = 7;
     int32 size = 8;
-    bool deleted = 9;
+    bool deleted = 9;    
 }

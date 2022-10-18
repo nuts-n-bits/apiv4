@@ -1,4 +1,4 @@
-build.sh
+*build.sh
 node_modules
 bin
 google

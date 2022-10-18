@@ -4,7 +4,7 @@ package apiv4.page;
 
 import "revision.proto";
 
-message PageMetadata {
+message Page {
 
     string page_name = 1;
     string namespace_id_bis = 2;
@@ -24,46 +24,33 @@ message PageMetadata {
     bool page_is_stripped = 16;
     string namespace_name = 17;
     string current_revision_id_bis = 18;
+    apiv4.revision.RevisionMetadata rev_meta = 19;
+    string content = 20;
 }
 
-message PageWithRenderingElements {
-    
-    PageMetadata page_meta = 1;
-    apiv4.revision.RevisionMetadata rev_meta = 2;
-    string content = 3;
-}
+message PageReq {
 
-message RequestPageRenderingElementsByApparentName {
-
-    string sid = 1;
+    reserved 1;
     string ssec = 2;
     string apparent_page_name = 3;
+    string revision_id_bis = 4;
+    string page_id_bis = 5;
+    string exclude_revision_metadata = 6;
+    string exclude_contents = 7;
 }
 
-message RequestPageRenderingElementsByRevisionId {
+message PageEditReq {
 
-    string sid = 1;
+    reserved 1;
     string ssec = 2;
-    string revision_id_bis = 3;
-}
-
-message RequestPageMetadataByName {
-
-    string sid = 1;
-    string ssec = 2;
-    string page_name = 3;
-}
-
-message RequestCreateOrEditPage {
-
-    string sid = 1;
-    string ssec = 2;
-    string page_name = 3;  // Apparent page name. Namespace resolved by server
-    string content = 4;
-    string revision_comment = 5;
-    Visibility visibility = 6;
-    string language_code = 7;
-    string license_name = 8;
+    string apparent_page_name = 3; 
+    string page_id_bis = 4;
+    string content = 5;
+    string revision_comment = 6;
+    Visibility visibility = 7;
+    string language_code = 8;
+    string license_name = 9;
+    bool do_not_create_if_not_exist = 10;
 
     enum Visibility {
         all_visible = 0;
@@ -72,20 +59,28 @@ message RequestCreateOrEditPage {
     }
 }
 
-message RequestHistoryRenderingElementsByApparentPageName {
+message PageEditRes {
 
-    string sid = 1;
+    string pid_bis = 1;
+    string apparent_page_name = 2;
+    string revision_bis = 3;
+}
+
+message PageHistReq {
+
+    reserved 1;
     string ssec = 2;
 
     string apparent_page_name = 3;
-    string smallest_date_iso = 4;
-    string biggest_date_iso = 5;
-    string smallest_id_bis = 6;
-    string biggest_id_bis = 7;
+    string page_id = 9;
+    string smallest_date_unix_millis_bi = 4;
+    string biggest_date_unix_millis_bi = 5;
+    string smallest_id_bi = 6;
+    string biggest_id_bi = 7;
     int32 request_amount_suggestion = 8;
 }
 
-message PageHistoryWithRenderingElements {
+message PageHistRes {
 
     string pagename = 1;
     string ns_name = 2;
@@ -93,75 +88,56 @@ message PageHistoryWithRenderingElements {
     repeated apiv4.revision.RevisionMetadata rev_meta = 4;
 }
 
-message PageCreateOrEditReport {
-
-    string pid_bis = 1;
-    string apparent_page_name = 2;
-    string revision_bis = 3;
-}
-
-message RequestDeletePageByApparentName {
+message PageDeleteReq {
     
-    string sid = 1;
+    reserved 1;
     string ssec = 2;
     string apparent_page_name = 3;
     string summary = 4;
 }
 
-message PageDeletionReport {
+message PageDeleteRes { 
 
     string pid_bis = 1;
     string apparent_page_name = 2;
 }
 
-message RequestMovePageByApparentName {
+message PageMoveReq {
 
-    string sid = 1;
+    reserved 1; 
     string ssec = 2;
 
     string original_apparent_page_name = 3;
     string new_apparent_page_name = 4;
     bool create_redirection_page = 5;
-    ConflictResolutionStrategy conflict_resolution = 6;
+    OnConflict on_conflict = 6;
     string summary = 7;
 
     
-    enum ConflictResolutionStrategy {
+    enum OnConflict {
         abort = 0;
         delete_target_page = 1;
     }
 }
 
-message PageMoveReport {
+message PageMoveRes {
     
     string page_id_bis = 3;
 }
 
-message RequestUpdatePageConfig {
 
-    string sid = 1;
-    string ssec = 2;
-    string apparent_page_name = 3;
-    string new_config = 4;
-    string operation_comment = 5;
-}
-
-message PageConfigUpdateReport {
-
-    string page_id_bis = 1;
-}
-
-message RequestUpdatePagePeripheralConfig {
+message PageEditConfigReq {
     
-    string sid = 1;
+    reserved 1; 
     string ssec = 2;
     string apparent_page_name = 3;
-    string comment = 4;
+    string page_id_bis = 4;
+    string comment = 5;
 
-    bool change_license_name = 5;
-    string new_license_name = 6;
-    bool change_language_code = 7;
-    string new_language_code = 8;
-    bool change_content_model = 9;
-    string new_content_model = 10;
+    oneof what_to_change {
+        string new_license_name = 6;
+        string new_language_code = 7;
+        string new_content_model = 8;
+        string new_config = 9;
+    }
 }
