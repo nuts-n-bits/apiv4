@@ -6,29 +6,48 @@ import "page.proto";
 import "user.proto";
 
 message Feed {
-    string feed_id_bis = 1;
-    string namespace_id_bis = 2;
+    bytes feed_id_bb = 1;
+    bytes namespace_id_bb = 2;
     string feed_name = 3;
-    string feed_creation_time_iso = 4;
+    bytes feed_creation_time_unix_mil_bb = 4;
     string creator_display_name = 5;
     string creator_id_name = 6;
-    string feed_config = 7;
-    string namespace_name = 8;
-    string event_id_bis = 9;
-    repeated apiv4.page.Page feed_render_ele = 10;
+    bytes creator_id_bb = 7;
+    string feed_config = 8;
+    string namespace_name = 9;
+    bytes event_id_bb = 10;
+    repeated FeedItem feed_render_ele = 11;
+}
+
+message FeedItem {
+    bytes feed_item_id_bb = 1;
+    bytes creator_user_id_bb = 2; 
+    string creator_display_name = 3;
+    bytes parent_feed_id_bb = 4;
+    bytes event_id_bb = 5;
+    bool elevated_read_permission = 6;
+    bool deleted = 7;
+    bytes is_reply_to_bb = 8;
+    bytes item_type_bb = 9;
+    string content_text = 10;
+    bytes t_create_unix_millis_bb = 11;
+    bytes t_update_unix_millis_bb = 12;
 }
 
 message FeedReq {
     reserved 1; 
     string ssec = 2;
     string apparent_feed_name = 3;
-    int32 request_amount_suggestion = 4;
-    string biggest_date_iso = 5;
-    string smallest_date_iso = 6;
-    string biggest_id_bis = 7;
-    string smallest_id_bis = 8;
-    bool asc = 9;
-    bool exclude_feed_render_ele = 10;
+    bytes timestamp_unix_mils_bb = 4;
+    Mode request_mode = 5;
+    bytes wish_to_get_how_many_bb = 6;
+    enum Mode {
+        Older = 0;
+        Newer = 1;
+        Around = 2;
+    }
+    bool asc = 7;
+    bool exclude_feed_render_ele = 8;
 }
 
 message FeedCreateReq {
@@ -36,10 +55,10 @@ message FeedCreateReq {
     string ssec = 2;
     string apparent_feed_name = 3;
     string initial_content = 4;
-    string comment = 5;
+    reserved 5;  // comment
     Visibility visibility = 6;
     string language_code = 7;
-    string license_name = 8;
+    reserved 8;
     enum Visibility {
         all_visible = 0;
         admin_visible = 1;  // Up to namespace-specific business logic to determine how to enforce.
@@ -48,33 +67,79 @@ message FeedCreateReq {
 }
 
 message FeedCreateRes {
-    string feed_id_bis = 2;
+    bytes feed_id_bb = 2;
 }
 
 message FeedAppendReq {
-    reserved 1;
+    reserved 1, 4, 6;
     string ssec = 2;
-    string apparent_feed_name = 3;
-    string content = 4;
-    string comment = 5;
-    string lang_code = 6;
-    string content_model = 7;
+    bytes feed_id_bb = 3;
+    string content = 5;
+    bytes in_reply_to_bb = 8;
 }
 
 message FeedAppendRes {
-    string new_page_id_bis = 1;
+    bytes new_item_id_bb = 1;
 }
 
-message FeedTicketCreateReq {
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////// TICKETS //////////////////////////////////////////////////////////
+
+message TicketCreateReq {
     reserved 1; 
     string ssec = 2;
     string target_ns = 3;
-    string content = 4;
-    string email = 5;
-    string language_code = 6;
+    repeated string content = 4;
+    string ticket_email = 5;
+    string ticket_secret = 6;
+    string language_code = 7;
 }
 
-message FeedTicketCreateRes {
+message TicketCreateRes {
     string ticket_name = 1;
     string ticket_apparent_name = 2;
+    bytes ticket_id_bb = 3;
+    string ticket_email = 4;
+    string ticket_wallet_pass_url = 5;
+}
+
+message TicketAppendReq {
+    string ssec = 1;
+    bytes ticket_id_bb = 2;
+    string content = 3;
+    string ticket_email = 4;
+    string ticket_secret = 5;
+    bytes in_reply_to_bb = 6;
+}
+
+message TicketReq {
+    string ssec = 1;
+    string ticket_apparent_name = 2;
+    string ticket_email = 3;
+    string ticket_secret = 4;
+    bytes ticket_timestamp_unix_mils_bb = 5;
+    Mode request_mode = 6;
+    bytes wish_to_get_how_many_bb = 7;
+    enum Mode {
+        Older = 0;
+        Newer = 1;
+        Around = 2;
+    }
+}
+
+message TicketLookupReq {
+    string ticket_name_sans_ns = 1;
+    string ticket_email = 2;
+}
+
+message TicketLookupRes {
+    repeated Entry entries = 1;
+    message Entry {
+        string apparent_name = 1;
+        bytes t_create_unix_millis_bb = 2;
+        bytes ticket_ns_bb = 3;
+        string ticket_ns_name = 4;
+    }
 }

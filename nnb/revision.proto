@@ -6,10 +6,10 @@ import "user.proto";
 
 message RevisionMetadata {
 
-    string rev_id_bis = 1;
-    string creation_time_iso = 2;
+    bytes rev_id_bb = 1;
+    bytes creation_time_unix_mil_bb = 2;
     string comment = 3;
-    string related_page_id_bis = 4;
+    bytes related_page_id_bb = 4;
     string creator_display_name = 5;
     string creator_id_name = 6;
     bool elevated_read_permission = 7;

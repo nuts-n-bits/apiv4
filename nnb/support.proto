@@ -8,9 +8,9 @@ message Empty {
 
 message GroupModel {
 
-    string group_id_bis = 1;
-    string group_name_bis = 2;
-    repeated string group_permissions_id_bis = 3;
+    bytes group_id_bb = 1;
+    bytes group_name_bb = 2;
+    repeated bytes group_permissions_id_bb = 3;
 }
 
 message ProofOfWorkChallenge {
@@ -22,7 +22,7 @@ message ProofOfWorkChallenge {
     }
     Pow_type pow_type = 2;
     string pow_challenge = 3;  // e.g. data uri that has a captcha image
-    string expiry_iso = 4;
+    bytes expiry_unix_mil_bb = 4;
 }
 
 message ProofOfWorkProduced {
@@ -31,7 +31,7 @@ message ProofOfWorkProduced {
     string pow_answer = 2;
 }
 
-message ErrorReport {
+message PbErrorReport {
 
     uint32 http_status = 1;
     string e_code = 2;

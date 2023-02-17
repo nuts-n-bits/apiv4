@@ -8,8 +8,8 @@ import "user.proto";
 
 message Event {
 
-    string event_id_bis = 1;
-    string event_creation_time = 2;
+    bytes event_id_bb = 1;
+    bytes event_creation_time_unix_mil_bb = 2;
 
     repeated apiv4.page.PageMetadata event_page = 3;
     repeated apiv4.feed.FeedMetadata event_feed = 4;

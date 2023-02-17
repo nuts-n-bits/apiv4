@@ -16,6 +16,12 @@ arch -x86_64 ./bin/protoc-osx -I="./nnb" \
 "./nnb/user.proto" \
 "./nnb/feed.proto"
 
+if [ $? -ne 0 ]
+then
+    echo "EXIT: protoc reported error"
+    exit 1
+fi
+
 echo "npm pack"
 npm pack
 echo "done"
