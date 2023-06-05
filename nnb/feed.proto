@@ -36,7 +36,7 @@ message FeedItem {
 
 message FeedReq {
     reserved 1; 
-    string ssec = 2;
+    bytes ssec = 2;
     string apparent_feed_name = 3;
     bytes timestamp_unix_mils_bb = 4;
     Mode request_mode = 5;
@@ -52,7 +52,7 @@ message FeedReq {
 
 message FeedCreateReq {
     reserved 1; 
-    string ssec = 2;
+    bytes ssec = 2;
     string apparent_feed_name = 3;
     string initial_content = 4;
     reserved 5;  // comment
@@ -72,7 +72,7 @@ message FeedCreateRes {
 
 message FeedAppendReq {
     reserved 1, 4, 6;
-    string ssec = 2;
+    bytes ssec = 2;
     bytes feed_id_bb = 3;
     string content = 5;
     bytes in_reply_to_bb = 8;

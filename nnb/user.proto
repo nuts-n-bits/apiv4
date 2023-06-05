@@ -42,7 +42,7 @@ message UserLoginRes {
     }
     message Ok {
         reserved 1;
-        string ssec = 2;
+        bytes ssec = 2;
         bytes expiry_unix_mils_bb = 3;
     }
     message VerifyMailAddr {
@@ -63,14 +63,14 @@ message UserCreateReq {
 message UserCreateRes {
     bytes user_id_bb = 1;
     reserved 2;
-    string ssec = 3;
+    bytes ssec = 3;
     bytes expiry_unix_mil_bb = 4;
     UserModel u_model = 5;
 }
 
 message UserModelReq {
     reserved 1;
-    string ssec = 2;
+    bytes ssec = 2;
     
     int32 get_group = 3;
     bool get_group_new_to_old = 4;
@@ -95,7 +95,7 @@ message UserModelPublicReq {
 
 message SessionHeartbeatReq {
     reserved 1;
-    string ssec = 2;
+    bytes ssec = 2;
 }
 
 message SessionHeartbeatRes {
@@ -105,12 +105,12 @@ message SessionHeartbeatRes {
 
 message SessionInvalidateReq {
     reserved 1;
-    string ssec = 2;
+    bytes ssec = 2;
 }
 
 message ContribReq {
     reserved 1; 
-    string ssec = 2;
+    bytes ssec = 2;
 }
 
 message Contrib {

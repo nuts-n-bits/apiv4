@@ -31,7 +31,7 @@ message Page {
 message PageReq {
 
     reserved 1;
-    string ssec = 2;
+    bytes ssec = 2;
     string apparent_page_name = 3;
     bytes revision_id_bb = 4;
     bytes page_id_bb = 5;
@@ -42,7 +42,7 @@ message PageReq {
 message PageEditReq {
 
     reserved 1;
-    string ssec = 2;
+    bytes ssec = 2;
     oneof ident {
         string apparent_page_name = 3; 
         bytes page_id_bb = 4;
@@ -71,7 +71,7 @@ message PageEditRes {
 message PageHistReq {
 
     reserved 1;
-    string ssec = 2;
+    bytes ssec = 2;
 
     oneof ident {
         string apparent_page_name = 3;
@@ -95,7 +95,7 @@ message PageHistRes {
 message PageDeleteReq {
     
     reserved 1;
-    string ssec = 2;
+    bytes ssec = 2;
     string apparent_page_name = 3;
     string summary = 4;
 }
@@ -109,7 +109,7 @@ message PageDeleteRes {
 message PageMoveReq {
 
     reserved 1; 
-    string ssec = 2;
+    bytes ssec = 2;
 
     string original_apparent_page_name = 3;
     string new_apparent_page_name = 4;
@@ -133,7 +133,7 @@ message PageMoveRes {
 message PageEditConfigReq {
     
     reserved 1; 
-    string ssec = 2;
+    bytes ssec = 2;
     string apparent_page_name = 3;
     bytes page_id_bb = 4;
     string comment = 5;
