@@ -16,6 +16,14 @@ echo "protoc"
 "./nnb/user.proto" \
 "./nnb/feed.proto"
 
+if [ $? -ne 0 ]
+then
+    echo "+===============+"
+    echo "| protoc failed |"
+    echo "+===============+"
+    exit 1
+fi
+
 echo "npm pack"
 npm pack
 echo "done"

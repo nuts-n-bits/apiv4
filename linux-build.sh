@@ -7,7 +7,7 @@ echo "mkdir" $dist_dir
 mkdir $dist_dir
 
 echo "protoc"
-arch -x86_64 ./bin/protoc-osx -I="./nnb" \
+./bin/protoc -I="./nnb" \
 --plugin="protoc-gen-ts=./node_modules/.bin/protoc-gen-ts" \
 --js_out="import_style=commonjs,binary:"$dist_dir --ts_out=$dist_dir \
 "./nnb/page.proto" \
